@@ -1,10 +1,15 @@
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #0d1117;
+  height: 100%;
 }
 
 #shhh {

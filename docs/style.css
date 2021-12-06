@@ -1,0 +1,15 @@
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0d1117;
+}
+
+#shhh {
+  color: #30363d;
+  font-family: Segoe UI, Helvetica, Arial;
+  font-weight: bold;
+  font-size: 28px;
+}

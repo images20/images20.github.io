@@ -1,9 +1,1039 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Форматы цифровых изображений</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Round" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div id="shhh">shhh... let's not leak our hard work</div>
-  </body>
+</head>
+<body class="showIEWarning waitingForUserInteraction bodyState_introNotDone explNotUsed">
+    <script>if (!document.documentMode) document.body.classList.remove('showIEWarning');</script>
+    <div id="ieWarning">
+        <div id="ieWarning_background"></div>
+        <div id="ieWarning_content">
+            <div class="header">Данная страница не откроется в Internet Explorer.</div>
+            <p>Internet Explorer – устаревший браузер, не поддерживающий многие современные стандарты.</p>
+            <p>Откройте эту страницу в любом из современных браузеров, таких как Google Chrome, Mozilla Firefox, Microsoft Edge, Opera, Safari, Vivaldi, Яндекс.Браузер и т.д.</p>
+            <p>Если у вас их нет, то ниже вы можете скачать любой из них.</p>
+            <div id="ieWarning_downloadTable">
+                <div>
+                    <img draggable="false" src="assets/browser_icons/browser_chrome.png" alt="Chrome">
+                    <a href="https://chrome.com">Google Chrome</a>
+                </div>
+                <div>
+                    <img draggable="false" src="assets/browser_icons/browser_firefox.png" alt="Firefox">
+                    <a href="https://mozilla.org/firefox">Mozilla Firefox</a>
+                </div>
+                <div>
+                    <img draggable="false" src="assets/browser_icons/browser_opera.png" alt="Opera">
+                    <a href="https://opera.com">Opera</a>
+                </div>
+                <div>
+                    <img draggable="false" src="assets/browser_icons/browser_vivaldi.png" alt="Vivaldi">
+                    <a href="https://vivaldi.com">Vivaldi</a>
+                </div>
+                <div>
+                    <img draggable="false" src="assets/browser_icons/browser_yandex.png" alt="Yandex">
+                    <a href="https://browser.yandex.ru">Яндекс.Браузер</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="navButton" id="auxBackButton"><icon>navigate_before</icon><span>Вернуться назад</span></button>
+    <button class="navButton" id="navOpenButton"><icon>III</icon><span>Содержание</span></button>
+    <div id="navbar">
+        <div id="navbar_header">
+            <div id="navbar_header_text">Содержание</div>
+            <div id="navbar_header_closeButton"><icon>close</icon></div>
+        </div>
+        <div id="navbar_progress">
+            <div id="navbar_progress_text">0% пройдено</div>
+            <progress id="navbar_progress_bar" value="0.25"></progress>
+        </div>
+        <div id="navbar_links"></div>
+    </div>
+    <img id="imageCloseup"></img>
+    <div id="imageCloseupShadow"></div>
+    <div id="navShadow"></div>
+    <page id="titleScreen">
+        <div id="titleScreen_sideLeft">
+            <div id="titleScreen_sideLeftContainer">
+                <div id="titleScreen_glass"></div>
+                <div id="titleScreen_title">Форматы цифровых изображений</div>
+                <div id="titleScreen_startButton_container">
+                    <div id="titleScreen_startButton_button">
+                        <div id="titleScreen_startButton_button_text">Начать</div>
+                        <div id="titleScreen_startButton_button_ripple"></div>
+                    </div>
+                    <div id="titleScreen_startButton_pageTransitionRipple"></div>
+                </div>
+            </div>
+        </div>
+        <div id="titleScreen_sideRight">
+            <div id="titleScreen_reelContainer">
+                <img src="assets/gfx_reel/1.webp">
+                <img src="assets/gfx_reel/2.webp">
+                <img src="assets/gfx_reel/3.webp">
+                <img src="assets/gfx_reel/4.webp">
+                <img src="assets/gfx_reel/5.webp">
+                <img src="assets/gfx_reel/6.webp">
+                <img src="assets/gfx_reel/7.webp">
+                <img src="assets/gfx_reel/8.webp">
+                <img src="assets/gfx_reel/9.webp">
+                
+                <img src="assets/gfx_reel/1.webp">
+                <img src="assets/gfx_reel/2.webp">
+                <img src="assets/gfx_reel/3.webp">
+                <img src="assets/gfx_reel/4.webp">
+                <img src="assets/gfx_reel/5.webp">
+                <img src="assets/gfx_reel/6.webp">
+                <img src="assets/gfx_reel/7.webp">
+                <img src="assets/gfx_reel/8.webp">
+                <img src="assets/gfx_reel/9.webp">
+            </div>
+        </div>
+    </page>
+    <page intitle="Пиксель" class="pageState_introNotDone">
+        <div class="scrollTooltip"><icon>expand_more</icon> Листайте вниз <icon>expand_more</icon></div>
+        <div class="fullHeightBlockFlex pageTitle" id="chapterTitle_PIXEL">
+            <div class="chapterTitle">Пиксель</div>
+            <div class="chapterTitleGFX">
+                <video src="assets/gfx_titleImages/pixel_intro.webm" muted></video>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Как вы, может быть, уже знаете, экраны телевизоров, смартфонов и других устройств состоят из крошечных прямоугольников красного, зелёного и синего цвета.</div>
+                <div>Эти элементы называют субпикселями. Три таких образуют один пиксель — наименьший логический элемент матрицы дисплеев.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image"><img src="assets/gfx_pixel/pixel1.webp" alt=""></div>
+                <div class="GFX_caption">Изображение курсора на мониторе вблизи.</div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                <gallery id="gallery_pixel" class="gallery_square"></gallery>
+            </div>
+            <div class="pageText">
+                <div>Субпиксели настолько малы, что мы их не видим. Но из красного, зелёного и синего цвета можно получить разнообразные цвета и оттенки.</div>
+                <div>Как уже было сказано, пиксель — наименьший <u><b>логический</b></u> элемент.
+                    Это значит, что это наименьший элемент, который может контролироваться самим устройством (видеоадаптером, например, компьютера).
+                    Оно посылает экрану информацию о каждом пикселе, а сам экран уже регулирует яркость субпикселей. Так мы видим цветное изображение.</div>
+                <div>Но экраны имеют ещё одну крайне важную характеристику...</div>
+            </div>
+        </div>
+        <gotoCard onclick="goToPage('+')">
+            <gcText>О разрешении</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="Разрешение">
+        <div class="fullHeightBlockFlex pageTitle pageTitle_absolute">
+            <div class="chapterTitle" style="color: white; text-shadow: 0 4px 16px #1036;">Разрешение</div>
+            <div class="chapterTitleGFX resolutionTitleContainer">
+                <div id="resolutionTitleRect1"></div>
+                <div id="resolutionTitleRect2"></div>
+                <div id="resolutionTitleRect3"></div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Мы выяснили, что экраны представляют собой таблицы из пикселей. А поскольку это таблица, то она имеет число "строк" и "столбцов" – разрешение.</div>
+                <div>Чем больше разрешение, тем больше деталей может поместиться на экране. Но разрешение имеют не только мониторы, но и растровые картинки.</div>
+                <div>Вы можете подвигать ползунок ниже и посмотреть на то, как будет изменяться картинка с книгой.</div>
+                <div>Примечание: разница в разрешении достаточно часто бывает намного более разительной, чем показано здесь.</div>
+                <div class="interPanel_container" id="interResolution_panelContainer">
+                    <div class="interPanel" id="interResolution_panel">
+                        <div class="interPanel_values">
+                            <div id="interResolution_value"></div>
+                        </div>
+                        <input type="range" id="interResolution_input" min="0" max="8" value="2" draggable="false">
+                    </div>
+                </div>
+            </div>
+            <div class="pageGFX">
+                <div id="interResolution_outputContainer" class="GFX_image">
+                    <picture>
+                        <source srcset="assets/gfx_resolution/h40.avif" type="image/avif">
+                        <img src="assets/gfx_resolution/h40.webp">
+                    </picture>
+                    <picture>
+                        <source srcset="assets/gfx_resolution/h100.avif" type="image/avif">
+                        <img src="assets/gfx_resolution/h100.webp">
+                    </picture>
+                    <picture>
+                        <source srcset="assets/gfx_resolution/h200.avif" type="image/avif">
+                        <img src="assets/gfx_resolution/h200.webp">
+                    </picture>
+                    <picture>
+                        <source srcset="assets/gfx_resolution/h300.avif" type="image/avif">
+                        <img src="assets/gfx_resolution/h300.webp">
+                    </picture>
+                    <picture>
+                        <source srcset="assets/gfx_resolution/h400.avif" type="image/avif">
+                        <img src="assets/gfx_resolution/h400.webp">
+                    </picture>
+                    <picture>
+                        <source srcset="assets/gfx_resolution/h500.avif" type="image/avif">
+                        <img src="assets/gfx_resolution/h500.webp">
+                    </picture>
+                    <picture>
+                        <source srcset="assets/gfx_resolution/h600.avif" type="image/avif">
+                        <img src="assets/gfx_resolution/h600.webp">
+                    </picture>
+                    <picture>
+                        <source srcset="assets/gfx_resolution/h700.avif" type="image/avif">
+                        <img src="assets/gfx_resolution/h700.webp">
+                    </picture>
+                    <picture>
+                        <source srcset="assets/gfx_resolution/h800.avif" type="image/avif">
+                        <img src="assets/gfx_resolution/h800.webp">
+                    </picture>
+                </div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                <div class="GFX_image" style="width: 100%"><img src="assets/gfx_resolution/youtube.webp" alt="" style="width: 100%; height: auto !important"></div>
+                <div class="GFX_caption">Настройки качества на YouTube</div>
+            </div>
+            <div class="pageText">
+                <div>Вы все были на YouTube и прекрасно знаете, что там есть настройка качества. Она отвечает именно за разрешение просматриваемого видео.</div>
+                <div>Часто работает такое правило – чем больше разрешение картинки, тем больше её вес. Поэтому та самая настройка качества помогает смотреть видео, например, в дороге, где связь бывает достаточно плохой.</div>
+            </div>
+        </div>                
+        <gotoCard onclick="goToPage('+')">
+            <gcText>О цветах</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="Цвета">
+        <div class="fullHeightBlockFlex pageTitle pageTitle_absolute">
+            <div class="chapterTitle">Цвета</div>
+            <div class="chapterTitleGFX colorsTitleContainer">
+                <div id="colorsTitleRingBlur"></div>
+                <div id="colorsTitleRingBack"></div>
+                <div id="colorsTitleRingFront"></div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                <div class="GFX_image GFX_image_logo"><img src="assets/gfx_colors/colorFormula.webp" style="width: 100%; height: auto !important"></div>
+            </div>
+            <div class="pageText">
+                <div>Работа компьютеров и сматрфонов основана на операциях с битами, то есть с нулями и единицами. Цвета в компьютерах тоже кодируются битами, и количество цветов в картинке напрямую зависит от 
+                    количества бит, выделяемого на один пиксель.</div>
+                <div><i>N = 2<sup>i</sup>.</i> Это единственная формула на этом сайте. N — количетво цветов, i — кол-во бит, который выделяется на 1 пиксель. То есть: если выделить 1 байт (то есть 8 бит) на пиксель, то в изображении может храниться 256 цветов.</div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Сегодня почти везде используется схема TrueColor — 24 бита на пиксель. Это позволяет воспроизвести почти все цвета, которые может видеть человек.</div>
+                <div>Вы можете посмотреть эту зависимость более наглядно с помощью ползунка ниже и двух изображений рядом.</div>
+                <div class="interPanel_container" id="interColors_panelContainer">
+                    <div class="interPanel" id="interColors_panel">
+                        <div class="interPanel_values">
+                            <div id="interColors_valueBits"></div>
+                            <div id="interColors_valueColors"></div>
+                        </div>
+                        <input type="range" id="interColors_input" min="0" max="9" value="6" draggable="false">
+                        <button id="interColors_switchFullscreenButton" onclick="interColors_swtichFullscreen()">Посмотреть ближе</button>
+                    </div>
+                </div>
+            </div>
+            <div class="pageGFX">
+                <div id="interColors_outputContainer" class="collapsed">
+                    <div id="interColors_output1" class="GFX_image interColors_output">
+                        <img src="assets/gfx_colors/colorwheel/bit_1.webp">
+                        <img src="assets/gfx_colors/colorwheel/bit_2.webp">
+                        <img src="assets/gfx_colors/colorwheel/bit_3.webp">
+                        <img src="assets/gfx_colors/colorwheel/bit_4.webp">
+                        <img src="assets/gfx_colors/colorwheel/bit_5.webp">
+                        <img src="assets/gfx_colors/colorwheel/bit_6.webp">
+                        <img src="assets/gfx_colors/colorwheel/bit_7.webp">
+                        <img src="assets/gfx_colors/colorwheel/bit_8.webp">
+                        <img src="assets/gfx_colors/colorwheel/bit_16.webp">
+                        <img src="assets/gfx_colors/colorwheel/bit_24.webp">
+                    </div>
+                    <div id="interColors_output2" class="GFX_image interColors_output">
+                        <img src="assets/gfx_colors/flowers/bit_1.avif">
+                        <img src="assets/gfx_colors/flowers/bit_2.avif">
+                        <img src="assets/gfx_colors/flowers/bit_3.avif">
+                        <img src="assets/gfx_colors/flowers/bit_4.avif">
+                        <img src="assets/gfx_colors/flowers/bit_5.avif">
+                        <img src="assets/gfx_colors/flowers/bit_6.avif">
+                        <img src="assets/gfx_colors/flowers/bit_7.avif">
+                        <img src="assets/gfx_colors/flowers/bit_8.avif">
+                        <img src="assets/gfx_colors/flowers/bit_16.avif">
+                        <img src="assets/gfx_colors/flowers/bit_24.avif">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <gotoCard onclick="goToPage('+')">
+            <gcText>Какая бывает графика</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="Виды графики">
+        <div class="fullHeightBlockFlex pageTitle pageTitle_absolute" style="overflow: hidden;">
+            <div class="chapterTitle" style="color: white">Виды графики</div>
+            <div class="chapterTitleGFX typesImgContainer">
+                <div class="typesImg4"></div>
+                <div class="typesImg123Container">
+                    <div class="typesImg1"></div>
+                    <div class="typesImg2"></div>
+                    <div class="typesImg3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Мы выяснили, что экраны состоят из пикселей. Но <b><i>в каком же виде</i></b> устройства хранят графику? Есть несколько основных видов цифровой графики: растровая, векторная, фрактальная и трёхмерная.</div>
+                <div>Растровые изображения состоят из растра — мозаики из пикселей, прямо как экран телефона, телевизора или монитора. В файлах с этим видом картинок есть информация о разрешении изображения, цвете (а иногда и о степени прозрачности) каждой точки.</div>
+            </div>
+            <div class="pageGFX">
+                <gallery id="gallery_raster" class="gallery_square"></gallery>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                <gallery id="gallery_pixelart" class="gallery_square"></gallery>
+            </div>
+            <div class="pageText">
+                <div>Из-за особенностей растровой графики существует такой вид художественного искусства, как пиксель-арт. Разрешение таких изображений очень маленькое, и в этом заключается их привлекательность. Вы наверняка видели пиксель-арт в Интернете и в играх.</div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Если растровая графика это набор пикселей, то векторная графика – набор точек, кривых и прямых линий, окружностей, многоугольников и так далее. Им можно определить некоторые характеристики, например, цвет заливки, цвет и толщина линий.</div>
+                <div>Так, форматы векторной графики содержат в себе не сам рисунок, а инструкции по его построению. В отличие от растровых, векторные изображения можно увеличивать без каких-либо искажений.</div>
+                <div>Возможно, вы не встречали этот вид графики напрямую, но она часто используется в Интернете и публицистике (поскольку символы шрифтов — тоже векторные фигуры), а также для создания иллюстраций.</div>
+            </div>
+            <div class="pageGFX">
+                <gallery id="gallery_vector"></gallery>
+            </div>
+        </div>
+        <div id="gfxSpecial_vectorScale"></div>
+        <div class="pageText" style="text-align: center;">Увеличение векторной картинки</div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                <div class="GFX_image" style="width: 100%"><img src="assets/gfx_types/fractals/zoom.webp" alt="" style="width: 100%; height: auto !important"></div>
+                <div class="GFX_caption">Увеличение фрактала</div>
+            </div>
+            <div class="pageText">
+                <div>Особняком стоит фрактальная графика, которая определяется математическими формулами и уравнениями. С помощью фракталов можно строить изображения растений, морей, ландшафтов и так далее. Сгенерированные таким способом сцены можно бесконечно увеличивать.</div>
+                <div>Часто фракталы выходят завораживающе красивыми. Вы можете посмотреть, какими интересными они бывают, перейдя на страницу ниже.</div>
+                <gotoCard onclick="goToPage(100)" class="gotoCard_toAUX">
+                    <gcText>Больше фракталов!</gcText>
+                    <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+                </gotoCard>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Помимо этого, фракталы можно обнаружить в реальной жизни достаточно часто. Облака, молнии, снежинки, и узоры на окнах зимой — всё это имеет фрактальную натуру, только никто об этом не задумывается.</div>
+                <div>Кристаллы, кораллы, морские раковины также являются хорошим примером фракталов. Фрактальное устройство можно увидеть и в растениях: это кроны деревьев, листья, плоды ананаса и капуста романеско.</div>
+            </div>
+            <div class="pageGFX">
+                <gallery id="gallery_natureFractals"></gallery>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                <div class="GFX_image" style="width: 100%"><img src="assets/gfx_types/3d/molecule.webp" alt="" style="width: 100%; max-width: 600px; height: auto !important"></div>
+                <div class="GFX_caption">3D-модель молекулы</div>
+                <div class="GFX_image" style="width: 100%"><img src="assets/gfx_types/3d/polygons.avif" alt="" style="width: 100%; height: auto !important"></div>
+                <div class="GFX_caption">Полигональные сетки</div>
+            </div>
+            <div class="pageText">
+                <div>Вы все знакомы с трёхмерной графикой. Вы можете видеть её практически везде — в играх, в фильмах, мультфильмах и много где ещё.</div>
+                <div>В отличие от остальных видов графики, создание изображения происходит в трёхмерном, а не двухмерном пространстве. Чаще всего объекты состоят из полигонов — многоугольных плоскостей.</div>
+                <div>Кстати, <imglink onclick="imglinkOpen(`https:\/\/upload.wikimedia.org/wikipedia/commons/b/b1/Fractal_tree_%28Plate_b_-_3%29.jpg`)">фракталы тоже бывают трёхмерными...</imglink></div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div><b>Какую графику использовать и когда?</b></div>
+                <div>Возможность безупречного масштабирования векторных картинок делает их идеальным вариантом для размещения в Интернете для просмотра на разных девайсах.</div>
+                <div>Но векторная графика в Интернете применяется лишь для иконок, логотипов и простейших элементов оформления. Если же попробовать превратить растровую фотографию в векторную картинку то выйдет...</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image" style="width: 100%"><img src="assets/gfx_types/conclusions/r2v.webp" alt="" style="width: 100%; height: auto !important"></div>
+                <div class="GFX_caption">...нечто подобное.</div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                <div class="GFX_image" style="width: 100%"><img src="assets/gfx_types/conclusions/illustrator.avif" alt="" style="width: 100%; height: auto !important"></div>
+                <div class="GFX_caption">Adobe Illustrator</div>
+            </div>
+            <div class="pageText">
+                <div>Поэтому для фотографий и сложных рисунков нужно использовать растровые форматы. Но в векторных графических редакторах (Adobe Illustrator, Inkscape, CorelDRAW) порисововать всё же можно.</div>
+                <div>Что же касается фракталов и трёхмерной графики, то с ними обычные люди работают крайне редко. Почти все изображения вокруг нас — растровые, поэтому <b>далее речь пойдёт только о них.</b></div>
+                <div>И почти для всех них применятся одна важнейшая операция...</div>
+            </div>
+        </div>
+        <gotoCard onclick="goToPage('+')">
+            <gcText>Сжатие</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="Сжатие">
+        <div class="fullHeightBlockFlex pageTitle pageTitle_absolute">
+            <div class="chapterTitle" style="color: white">Сжатие</div>
+            <div class="chapterTitleGFX compressionTitleContainer">
+                <div id="compressionTitleRect_grey"></div>
+                <div id="compressionTitleRect_red"></div>
+                <div id="compressionTitle_size">100%</div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                <div class="GFX_image">
+                    <picture>
+                        <source srcset="assets/gfx_compression/hdd.avif">
+                        <img src="assets/gfx_compression/hdd.webp">
+                    </picture>
+                </div>
+                <div class="GFX_caption">Реклама, 1980 г. «$3398, 10MB. Жёсткий диск, который вы ждали». <br> По сегодняшним меркам это крайне невыгодно.</div>
+            </div>
+            <div class="pageText">
+                <div>Раньше различные носители информации, будь то жёсткие диски, флешки или оптические диски, имели высокую стоимость и малый объем по сегодняшним меркам,
+                     а подключение к Интернету было намного более медленным.</div>
+                <div>Это заставляло людей использовать разные методы сжатия цифровой информации, коих было создано достаточно много.</div>
+                <div>Несмотря на то, что ситуация за последние 30 лет с хранением и пересылкой файлов стала лучше, сжатие всё ещё является крайне важной процедурой.</div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Сжатие бывает двух видов.</div>
+                <div>Сжатие без потерь информации уменьшает объём файла, оставляя содержимое самого изображения без изменений.</div>
+                <div>При сжатии с потерями информации содержимое изображения изменяется. 
+                     Такое сжатие по большей части основано на особенностях восприятия человеком изображений —
+                     чаще всего при сжатии убираются неважные детали, шумы, происходит искажение цветов, зачастую незаметное.</div>
+                <div>Разные форматы используют разные виды и алгоритмы сжатия, о которых мы узнаем позже.</div>
+            </div>
+            <div class="pageGFX">
+                <gallery id="gallery_compression" class="gallery_square"></gallery>
+            </div>
+        </div>
+        <gotoCard onclick="goToPage('+')">
+            <gcText>О файлах</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="Файлы. Форматы и расширения">
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                <div class="chapterTitle">Файлы. Форматы и расширения</div>
+            </div>
+            <div class="pageText">
+                <div>Из курса информатики вы уже узнали, что у каждого файла есть собственное имя, к примеру: "Отчёт.docx", "Правила.pdf", "Птицы.jpg", "Водопад.mp3" и так далее.</div>
+                <div>В этих именах можно выделить последнюю часть — расширение. Обычно это три или четыре латинских буквы, следующих после точки.</div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>По расширению обычно можно определить тип данных в файле (документ, изображение, аудио, видео, исполняемые или системные файлы), а также позволяет компьютеру открывать файлы в правильных программах.</div>
+                <div>У каждого из форматов, о которых здесь будет рассказываться, есть свои расширения. И с помощью этих знаний вы сможете определить формат изображения, посмотрев на имя файла.</div>
+                <div>Помимо этого, множество файлов могут хранить метаданные — дополнительную информацию о содержимом. В изображениях это может быть дата съемки, модель камеры и её настройки, комментарии и так далее.</div>
+                <div>И теперь стоит приступить к рассмотрению самих форматов растровых изображений. Первый на очереди — BMP.</div>
+            </div>
+            <div class="pageGFX">
+                <div id="interFileFormats_container" class="collapsed">
+                    <div id="interFileFormats_image" class="interFileFormats_output"></div>
+                    <div id="interFileFormats_description" class="interFileFormats_output"></div>
+                    <div id="interFileFormats_listContainer" class="interFileFormats_output">
+                        <div id="interFileFormats_list">
+                            <div id="interFileFormats_listPrev"></div>
+                            <div id="interFileFormats_listCurrent"></div>
+                            <div id="interFileFormats_listNext"></div>
+                        </div>
+                        <div id="interFileFormats_listGradientTop"></div>
+                        <div id="interFileFormats_listGradientBottom"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <gotoCard onclick="goToPage('+')">
+            <gcText>BMP</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="BMP">
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div><d expl="англ. Bitmap Picture">BMP</d> был создан корпорацией Майкрософт в 1980-х годах. Один из первых форматов цифровых изображений, поэтому отличается своей простотой: никакого сжатия не предусмотрено, следствием чего является большие, порой огромные размеры файлов.</div>
+                <div>Из плюсов можно отметить то, что формат имеет повсеместную поддержку и позволяет делать части изображения полупрозрачными (при определённых настройках). Изображения не теряют своего первоначального качества.</div>
+                <div>Но минусов больше, чем плюсов: как уже было сказано, файлы получаются большого размера, хранение метаданных невозможно, и, учитывая всё это, никаких преимуществ перед другими форматами нет.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image"><img src="assets/gfx_formats/bmp/windows98.webp" alt=""></div>
+                <div class="GFX_caption">Образец файла BMP в Windows 98</div>
+            </div>
+        </div>
+        <gotoCard onclick="goToPage('+')">
+            <gcText>GIF</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="GIF">
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                <gallery id="gallery_gif1"></gallery>
+            </div>
+            <div class="pageText">
+                <div><d expl="англ. Graphics Interchange Format – Формат для обмена графикой">GIF</d> был разработан в 1987 году компанией CompuServe для обмена изображениями по сети.</div>
+                <div>Большинству людей GIF известен как формат, в котором хранятся анимированные картинки — "гифки". Вы наверняка когда-нибудь использовали их в мессенджерах.</div>
+                <div>Но файлы в этом формате могут быть и без анимации.</div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>GIF — формат с индексированной палитрой цветов. Это означает, что цвета фиксированны определяются при создании изображения. Всего в одном изображении можно хранить до 256 цветов. В анимированных файлах во всех кадрах цвета используются одни и те же.</div>
+                <div>Пиксели могут быть либо полностью прозрачными, либо полностью непрозрачными, поэтому у границ объектов можно наблюдать эффект "лесенки".</div>
+                <div>Раньше этот формат использовался для хранения статичных изображений, когда нужна была прозрачность. Сегодня он уступает в популярности полноценным видеофайлам, которые порой имеют меньшие размеры, чем GIF, хотя нарицательное название всё ещё сохраняется.</div>
+            </div>
+            <div class="pageGFX">
+                <gallery id="gallery_gif2" class="gallery_square"></gallery>
+            </div>
+        </div>
+        <gotoCard onclick="goToPage('+')">
+            <gcText>TIFF</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="TIFF">
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                <div class="GFX_image"><img src="assets/gfx_formats/tiff/pagemaker_1988.png"></div>
+                <div class="GFX_caption">PageMaker, 1988</div>
+            </div>
+            <div class="pageText">
+                <div><d expl="англ. Tagged Image File Format – Теговый формат файлов изображений">TIFF</d> — формат, разработанный компанией Aldus в 1986 году. Эта же компания разработала PageMaker — одну из первых программ для публицистики. И до сих пор формат TIFF популярен в сферах публицистики и дизайна.</div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>По сравнению со многими форматами, даже современными, этот формат отличается большим количеством опций: максимальная глубина цвета — 64 бита на канал, поддерживается работа в разных цветовых моделях, хранение метаданных, использование разных методов сжатия без потерь.</div>
+                <div>Помимо этого, формат позволяет хранить в себе слои для удобного редактирования изображения после сохранения в таких программах, как Adobe Photoshop, InDesign и т.д.</div>
+                <div>От выбранных настроек зависит и конечный размер файла, который может быть достаточно большим. Другим важным минусом является то, что браузерами TIFF не поддерживается. Этот формат популярен в публицистике фотографии и дизайне. У обычных пользователей его можно увидеть крайне редко.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image"><video src="assets/gfx_formats/tiff/tiff_intro.webm"></video></div>
+                <div class="GFX_caption"></div>
+            </div>
+        </div>
+        <gotoCard onclick="goToPage('+')">
+            <gcText>PNG</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="PNG">
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX" id="pageGFX_png">
+                <div class="GFX_image GFX_image_logo">
+                    <img src="assets/gfx_formats/png/sea.avif">
+                </div>
+            </div>
+            <div class="pageText">
+                <div><d expl="англ. Portable Network Graphics – портативная сетевая графика">PNG</d> — формат, созданный в 1995 году как свободный аналог GIF.</div>
+                <div>Этот формат известен за поддержку прозрачности и полупрозрачности — на сегодняший день он является самым популярным для хранения изображений с прозрачностью. Поддерживает три типа цветности: TrueColor, градации серого и индексированная палитра цветов.</div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Несмотря на то, что PNG создавался как замена GIF, в базовой версии не реализована важная функция второго — поддержка анимации. В 2008 году было представлено расширение APNG, которое добавило поддержку хранения множества кадров в одном файле.</div>
+                <div>Это означает, что отныне можно было делать анимации, подобно GIF, но с намного большим количеством доступных цветов. Но даже сейчас увидеть анимированные PNG в Интернете — редкость.</div>
+            </div>
+            <div class="pageGFX">
+                <gallery id="gallery_pngVsGif"></gallery>
+            </div>
+        </div>
+        <gotoCard onclick="goToPage('+')">
+            <gcText>JPEG</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="JPEG">
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Широко известный формат JPEG был разработан <d expl="англ. Joint Photographic Experts Group, сокр. JPEG">Объединённой группой экспертов по фотографии</d> в 1992 году. Сегодня наибольшая часть изображений в Интернете — в этом формате.</div>
+                <div>JPEG позволяет хранить изображения глубиной цвета до 12 бит на канал, но в подавляющем большинстве случаев используется классический TrueColor. Прозрачность и сжатие без потерь неподдерживаются.</div>
+                <div>По этим причинам JPEG часто используется для хранения фотографий: прозрачность и полупрозрачность не нужна, некоторыми мелкими деталями можно пожертвовать в пользу размера файла, а цветов достаточно для представления фотографий без сильных искажений.</div>
+                <div>Эффективность сжатия JPEG уступает современным форматам, но является достаточно интересным.</div>
+                <gcAuxLabel>Дополнительно</gcAuxLabel>
+                <gotoCard class="gotoCard_toAUX" onclick="goToPage(102)">
+                    <gcText>Как сжимает JPEG</gcText>
+                    <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol>?</gcIconSymbol></gcIcon>
+                </gotoCard>
+            </div>
+            <div class="pageGFX">
+                 <div class="GFX_image"><img src="assets/gfx_formats/jpeg/niagara_falls.webp" style="height: 60vh;"></div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                 <div class="GFX_image"></div>
+                 <div class="GFX_caption">Изображение JPEG</div>
+            </div>
+            <div class="pageText">
+                <div>Этот формат имеет несколько <intextbutton>производных форматов</intextbutton>, но они обладают нестабильной поддержкой на разном программном обеспечении и используются очень редко.</div>
+                <div>Сам же JPEG безупречно поддерживается на всех современных операционных системах и браузерах, а смартфоны и камеры по умолчанию сохраняют полученные фотографии в этом формате.</div>
+            </div>
+        </div>
+        <gotoCard onclick="goToPage('+')">
+            <gcText>WebP</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="WebP">
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>WebP — современный формат растровых изображений от Google, созданный в 2010 году. Является довольно популярным в Интернете, но ещё не настолько, чтобы обогнать по этому показателю JPEG.</div>
+                <div>По сравнению с остальными форматами обладает самыми широкими возможностями: позволяет хранить анимацию, метаданные, поддерживает полупрозрачность и может сжимать это всё без потерь и с потерями. Недостаток — сжатие с потерями имеет меньшее количество настроек по сравнению с JPEG.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image GFX_image_logo"><img src="assets/gfx_formats/webp/webp_logo.webp"></div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                <div class="GFX_image GFX_image_logo"><img src="assets/gfx_formats/webp/vp8_logo.webp"></div>
+            </div>
+            <div class="pageText">
+                <div>Алгоритм сжатия на самом деле используется из другого проекта Google — <d expl="Видеокодек — алгоритм сжатия видеофайлов и их восстановления из сжатого состояния.">видеокодека</d> VP8, который считается сегодня уже слегка устаревшим, но достаточно хорошим.</div>
+                <div>WebP без проблем поддерживается на всех современных браузерах и крайне важен в Интернете.</div>
+                <div>Для работы с этим форматом в Windows необходимо установить библиотеки. Вы можете скачать их, <a href="https://storage.googleapis.com/downloads.webmproject.org/releases/webp/WebpCodecSetup.exe">нажав сюда.</a></div>
+            </div>
+        </div>
+        <gotoCard onclick="goToPage('+')">
+            <gcText>HEIF</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="HEIF">
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Формат изображений <d expl="англ. High Efficiency Image Format — «формат изображений высокой эффективности»">HEIF</d> был разработан <d expl="англ. Moving Picture Experts Group, сокр. MPEG">Экспертной группой по движущимся изображениям</d> в 2015 году. 
+                    Эта организация ответственна за многие стандарты медиа за последние 20-30 лет.</div>
+                <div>Этот формат приобрёл известность после того, как корпорация Apple приняла решение использовать его как основной в собственных продуктах. Так, уже несколько лет iPhone сохраняют фотографии именно в HEIF.</div>
+            </div>
+            <div class="pageGFX">
+                 <div class="GFX_image noShadow"><img src="assets/gfx_formats/heif/ios_settings.webp" style="height: 60vh;"></div>
+                 <div class="GFX_caption">Настройки форматов фотографий на iPhone</div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                <div class="GFX_image"><img src="assets/gfx_formats/heif/wwdc17.webp" style="height: 60vh;"></div>
+                 <div class="GFX_caption">Изображение HEIF</div>
+            </div>
+            <div class="pageText">
+                <div>HEIF может содержать метаданные. Поддержки прозрачности нет.</div>
+                <div>Подобно WebP, этот формат чаще всего использует эффективное сжатие с потерями, использующее в видеокодеке <d expl="англ. High Efficiency Video Coding — «кодирование видео высокой эффективности»">HEVC.</d></div>
+                <div>Но этот формат обладает одним крайне важным минусом — его не поддерживает ни один браузер. Это связано с патентами.</div>
+            </div>
+        </div>
+        <gotoCard onclick="goToPage('+')">
+            <gcText>AVIF</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="AVIF">
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div><d expl="англ. AV1 Still Image File Format — «Файл формата статичных изображений AV1»">AVIF</d> — открытый формат, созданный Альянсом за открытые медиа, в который входят 
+                    Apple, Facebook, Google, Microsoft, Amazon, Mozilla и многие другие крупные компании в индустрии высоких технологий.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image GFX_image_logo"><img src="assets/gfx_formats/avif/aomedia-logo-rgb.svg"></div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                <div class="GFX_image GFX_image_logo"><img src="assets/gfx_formats/avif/avif-logo-rgb.svg"></div>
+            </div>
+            <div class="pageText">
+                <div>Этот формат является новейшим, и содержит в себе лучшие черты HEIF и WebP: он поддерживает анимацию, прозрачность, метаданные, сжатие с потерями и без потерь. Глубина цвета может быть TrueColor или больше.</div>
+                <div>Подобно двум выше указанным форматам, его метод сжатия взят из видеокодека, а именно из AV1 (в котором, кстати, с недавнего времени YouTube хранит видео).</div>
+            </div>
+        </div>
+        <gotoCard onclick="goToPage('+')">
+            <gcText>RAW</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="RAW">
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div><d expl="перевод с англ. – «сырой»">RAW</d> — общее название группы форматов растровых изображений, отличающихся тем, что они содержат необработанные данные об электрических сигналах, полученных от фотоматрицы цифровой камеры или фотоаппарата. 
+                    Фотоны, которые попадают на матрицу, не несут в себе информации о цвете, поэтому для того, чтобы изображения выходили в итоге цветными, точки матрицы накрываются сеткой из фильтров трёх цветов – красного, синего и зелёного. 
+                    Чаще всего используется фильтр Байера, который можно видеть справа.</div>
+                <div></div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image"><video src="assets/gfx_formats/raw/gfx_raw_matrix.webm" muted></div>
+                <div class="GFX_caption">Фильтр Байера</div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageGFX">
+                <gallery id="gallery_raw"></gallery>
+            </div>
+            <div class="pageText">
+                <div>Эти картинки и фотографии выглядят странно, и их нельзя изменять или печатать напрямую. Это не растровые изображения в традиционном смысле, и перед манипуляциями (в том числе и просмотром) они должны пройти специальную обработку.</div>
+                <div>RAW крайне часто используется фотографами, поскольку имеет множество плюсов: большая глубина цвета, широкие возможности дальнейшей коррекции, отсутсвие сжатия и так далее. Отсутствие сжатия является и минусом, 
+                    поскольку фотографии занимают много пространства. Как уже было сказано, файлы требуют обработки, что занимает время. Именно поэтому этот формат используют лишь в специальных случаях, где он является крайне важным.</div>
+            </div>
+        </div>
+        <gotoCard onclick="goToPage('+')">
+            <gcText>Сравнение</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="Сравнение">
+        <div class="fullHeightBlockFlex pageTitle pageTitle_absolute">
+            <div class="chapterTitle">Сравнение</div>
+            <div class="chapterTitleGFX comparisonTitleContainer">
+                <div class="comparionTitleImage_left"></div>
+                <div class="comparionTitleImage_right"></div>
+                <div class="comparionTitleCircle"></div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Вся эта нудная теория вела к сравнению форматов друг с другом. Здесь можно сравнить картинки, которые получаются, если сжать их с потерями в форматах JPEG, HEIF, WebP и AVIF.</div>
+                <div>В списке есть две моих фотографии, два (тоже моих) тестовых рисунка, а также две фотографии из Интернета.</div>
+                <div>Выбирайте изображение, а затем формат слева и формат справа. Двигайте серую полоску посередине, чтобы наглядно видеть различия.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image GFX_image_logo"><img src="assets/gfx_comparison/gimpLogo.webp"></div>
+            </div>
+        </div>
+        <div class="fullHeightBlock">
+            <div id="comparisonContainerTest"></div>
+        </div>
+        <div class="fullHeightBlock">
+            <div class="pageText">
+                <div>Кроме сжатия с потерями, есть ещё сжатие без потерь. Там тоже есть сильные различия.</div>
+                <div>Вот средние результаты моих тестов:</div>
+            </div>
+        </div>
+        <graph id="comparisonLosslessGraphContainer"></graph>
+        <div class="pageText">
+            <div>Можно видеть, что новые форматы (WebP, HEIF, AVIF) лучше, чем старые (BMP, PNG, JPEG) при сжатии как с потерями, так и без потерь.</div>
+            <div>JPEG является худшим среди форматов с потерями, BMP — худшим среди форматов без потерь.</div>
+        </div>
+        <gotoCard onclick="goToPage('+')">
+            <gcText>Что делать дальше</gcText>
+            <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+        </gotoCard>
+    </page>
+    <page intitle="Что делать дальше">
+        <div class="fullHeightBlockFlex pageTitle pageTitle_absolute" style="background: linear-gradient(#27f8, transparent);">
+            <div class="chapterTitle">Что делать дальше</div>
+        </div>
+        <div class="fullHeightBlock">
+            <div class="pageText">
+                <div>Рассмотрев столько форматов, можно задать резонный вопрос: "А что с этим делать-то?"</div>
+                <div>Если вы хотите сэкономить пространство на своих устройствах, то вы можете следовать следующим советам:</div>
+                <div><b>1. Не используйте BMP или GIF для больших файлов.</b> Эти форматы устаревшие, и занимают много места. Для хранения гифок используйте анимированный WebP. Анимированные AVIF пока ещё встретить очень трудно, и хорошей поддержки они не имеют.</div>
+                <div>А BMP, к счастью, и так уже встречается крайне редко. Но если найдёте — конвертируйте в PNG, AVIF или Lossless WebP.</div>
+            </div>
+        </div>
+        <div class="fullHeightBlock">
+            <div class="pageText">
+                <div><b>2. Фотографии сохраняйnе в HEIF или AVIF.</b> Можно также и в WebP, но HEIF получить легче всего — скорее всего, ваш телефон может сохранять снимки в этом формате.</div>
+                <div>Если вы хотите сэкономить пространство на своих устройствах, то вы можете следовать следующим советам:</div>
+                <div>На iPhone так происходит по-умолчанию, на большинстве смартфонов на Android – нет. Поэтому вам придется в настройках камеры включить сохранение фотографий в HEIF.</div>
+                <div>Это сильно поможет для сохранения ценного места на телефоне.</div>
+            </div>
+        </div>
+        <div class="fullHeightBlock">
+            <div class="pageText">
+                <div><b>А как конвертировать?</b> Для этого есть хороший сайт – Squoosh. Там вы можете перевести свои картинки в WebP или AVIF. Причём изображения не покидают ваше устройство, и конвертируются прямо на нём, поэтому можно не беспокоиться о приватности.</div>
+                <gotoCard onclick="window.open('https:\/\/squoosh.app', '_blank').focus();">
+                    <gcText>Открыть Squoosh</gcText>
+                    <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+                </gotoCard>
+                <div>Единственный минус этого способа – нужно знать английский, или уметь пользоваться переводчиком. Так или иначе, я сделал инструкцию по использованию Squoosh, в которую вы можете подглядывать.</div>
+                <gotoCard class="gotoCard_toAUX" onclick="goToPage(101)">
+                    <gcText>Мини-руководство</gcText>
+                    <gcIcon><gcIconBackground></gcIconBackground><gcIconSymbol><icon>navigate_next</icon></gcIconSymbol></gcIcon>
+                </gotoCard>
+            </div>
+        </div>
+        <div class="fullHeightBlock">
+            <div class="pageText">
+                <div><b>Попробуйте RAW.</b> Для этого вам понадобится Adobe Photoshop, Adobe Lightroom или бесплатные Darktable и RawTherapee.</div>
+                <div>По сравнению с обычными фотографиями в JPEG фотографии в RAW выходят удивительные, особенно если их нужно обрабатывать.</div>
+                <div>Приложения, указанные выше, позволят вам конвертировать обработанные фотографии в обычные форматы.</div>
+                <div>Если у вас есть компьютер и зеркальная камера, то обязательно поменяйте формат на RAW в её настройках и попробуйте использовать его. Если же у вас что-то не получится, то просто верните прежние настройки.</div>
+            </div>
+        </div>
+        <div class="fullHeightBlock">
+            <div class="pageText">
+                <div><b>...или не делайте ничего.</b> Можно продолжать пользоваться тем, чем и пользовались раньше, и особо не задумываться о том, в каком же формате храняться ваши изображения.</div>
+                <div>Но полученные вами знания, скорее всего, очень помогут вам в дальнейшем.</div>
+                <div>В скором времени старые форматы будут заменены новыми, и те обретут лучшую поддержку на разных устройствах и программах.</div>
+                <div>И даже, если вы мало что поняли из вышесказанного, теперь вы хотя бы знаете о существовании такого разнообразия видов графики и форматов изображений.</div>
+            </div>
+        </div>
+    </page>
+    <div class="inter_fullscreen" id="interColors_fullscreen">
+            <div id="interColors_fullscreenOutput3">
+                <img src="assets/gfx_colors/island/bit_1.webp">
+                <img src="assets/gfx_colors/island/bit_2.webp">
+                <img src="assets/gfx_colors/island/bit_3.webp">
+                <img src="assets/gfx_colors/island/bit_4.webp">
+                <img src="assets/gfx_colors/island/bit_5.webp">
+                <img src="assets/gfx_colors/island/bit_6.webp">
+                <img src="assets/gfx_colors/island/bit_7.webp">
+                <img src="assets/gfx_colors/island/bit_8.webp">
+                <img src="assets/gfx_colors/island/bit_16.webp">
+                <img src="assets/gfx_colors/island/bit_24.webp">
+            </div>
+            <div id="interColors_fullscreenOutputContainer">
+                <div id="interColors_fullscreenOutput1" class="interColors_output">
+                    <img src="assets/gfx_colors/colorwheel/bit_1.webp">
+                    <img src="assets/gfx_colors/colorwheel/bit_2.webp">
+                    <img src="assets/gfx_colors/colorwheel/bit_3.webp">
+                    <img src="assets/gfx_colors/colorwheel/bit_4.webp">
+                    <img src="assets/gfx_colors/colorwheel/bit_5.webp">
+                    <img src="assets/gfx_colors/colorwheel/bit_6.webp">
+                    <img src="assets/gfx_colors/colorwheel/bit_7.webp">
+                    <img src="assets/gfx_colors/colorwheel/bit_8.webp">
+                    <img src="assets/gfx_colors/colorwheel/bit_16.webp">
+                    <img src="assets/gfx_colors/colorwheel/bit_24.webp">
+                </div>
+                <div id="interColors_fullscreenOutput2" class="interColors_output">
+                    <img src="assets/gfx_colors/flowers/bit_1.avif">
+                    <img src="assets/gfx_colors/flowers/bit_2.avif">
+                    <img src="assets/gfx_colors/flowers/bit_3.avif">
+                    <img src="assets/gfx_colors/flowers/bit_4.avif">
+                    <img src="assets/gfx_colors/flowers/bit_5.avif">
+                    <img src="assets/gfx_colors/flowers/bit_6.avif">
+                    <img src="assets/gfx_colors/flowers/bit_7.avif">
+                    <img src="assets/gfx_colors/flowers/bit_8.avif">
+                    <img src="assets/gfx_colors/flowers/bit_16.avif">
+                    <img src="assets/gfx_colors/flowers/bit_24.avif">
+                </div>
+            </div>
+    </div>
+    
+    <page class="auxPage" id="AUX_fractals">
+        <div class="scrollTooltip"><icon>expand_more</icon> Листайте вниз <icon>expand_more</icon></div>
+        <div class="AUX_fractalsTitle">Из Интернета</div>
+        <picture>
+            <source srcset="assets/gfx_types/aux_fractals/1.avif">
+            <img src="assets/gfx_types/aux_fractals/safari.webp">
+        </picture>
+        <img src="assets/gfx_types/aux_fractals/2.avif">
+        <img src="assets/gfx_types/aux_fractals/3.avif">
+        <img src="assets/gfx_types/aux_fractals/4.avif">
+        <img src="assets/gfx_types/aux_fractals/5.avif">
+        <div class="AUX_fractalsTitle">Созданные мной</div>
+        <img src="assets/gfx_types/aux_fractals/6.avif">
+        <img src="assets/gfx_types/aux_fractals/7.avif">
+        <img src="assets/gfx_types/aux_fractals/8.avif">
+        <img src="assets/gfx_types/aux_fractals/9.avif">
+        <img src="assets/gfx_types/aux_fractals/10.avif">
+        <img src="assets/gfx_types/aux_fractals/11.avif">
+        <img src="assets/gfx_types/aux_fractals/12.avif">
+        <img src="assets/gfx_types/aux_fractals/13.avif">
+        <img src="assets/gfx_types/aux_fractals/14.avif">
+        <img src="assets/gfx_types/aux_fractals/15.avif">
+        <img src="assets/gfx_types/aux_fractals/16.avif">
+        <img src="assets/gfx_types/aux_fractals/17.avif">
+        <img src="assets/gfx_types/aux_fractals/18.avif">
+        <img src="assets/gfx_types/aux_fractals/19.avif">
+        <div class="AUX_fractalsTitle">Живая и неживая природа</div>
+        <img src="assets/gfx_types/aux_fractals/20.avif">
+        <img src="assets/gfx_types/aux_fractals/21.avif">
+        <img src="assets/gfx_types/aux_fractals/22.avif">
+        <img src="assets/gfx_types/aux_fractals/23.avif">
+        <img src="assets/gfx_types/aux_fractals/24.avif">
+        <img src="assets/gfx_types/aux_fractals/25.avif">
+        <img src="assets/gfx_types/aux_fractals/26.avif">
+        <img src="assets/gfx_types/aux_fractals/27.avif">
+        <img src="assets/gfx_types/aux_fractals/28.avif">
+        <img src="assets/gfx_types/aux_fractals/29.avif">
+    </page>
+    <page class="auxPage" id="AUX_squoosh">
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Во-первых, стоит сказать, что вы можете использовать Squoosh как обычное приложение, без необходимости использовать Интернет.</div>
+                <div>Для этого нажмите голубую кнопку "Install" в правом верхнем углу страницы, а в появившемся затем окне — разрешите установку.</div>
+            </div>
+            <div class="pageGFX">
+                <gallery id="gallery_squooshInstall"></gallery>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Для того, чтобы загрузить изображение, нужно нажать на белую иконку изображения с плюсиком и выбрать нужное вам изображение.</div>
+                <div>На компьютере вы также можете перетащить нужную картинку из проводника или другой вкладки браузера на страницу Squoosh.</div>
+                <div>Помимо этого, можно ещё и вставлять изображения: для этого нажмите на подчёркнутое слово "<u><i>Paste</i></u>" под иконкой. В появившемся окошке дайте разрешение.</div>
+                <div>После этого вы можете вставлять в Squoosh скопированные вами изображения с помощью сочетания клавиш Ctrl+V (или Command+V на macOS)</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image">
+                    <picture>
+                        <source srcset="assets/gfx_squoosh/sq_upload.avif">
+                        <img src="assets/gfx_squoosh/sq_upload.webp">
+                    </picture>
+                </div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Также вы можете выбрать одно из тестовых изображений, которые показаны чуть ниже от розовой фигуры.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image">
+                    <picture>
+                        <source srcset="assets/gfx_squoosh/sq_try.avif">
+                        <img src="assets/gfx_squoosh/sq_try.webp">
+                    </picture>
+                </div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>После этого вы увидите редактор. Он работает так же, как и сравнение форматов, которое вы видели ранее: двигайте полоску посередине, чтобы сравнить два изображения.</div>
+                <div>Если вы открыли Squoosh на телефоне, то в самом низу страницы можете найти две одинаковые панели управления.</div>
+                <div>Верхняя отвечает за картинку сверху движущейся полоски, нижняя — за картинку снизу полоски.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image">
+                    <picture>
+                        <source srcset="assets/gfx_squoosh/sq_overview1.avif">
+                        <img src="assets/gfx_squoosh/sq_overview1.webp">
+                    </picture>
+                </div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Если же вы открыли Squoosh на компьютере, то экран будет разделён уже по вертикали. Панели, отвечающие за изображения, переместились в левый и правый нижний угол соотвественно.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image">
+                    <picture>
+                        <source srcset="assets/gfx_squoosh/sq_overview2.avif">
+                        <img src="assets/gfx_squoosh/sq_overview2.webp">
+                    </picture>
+                </div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Вверху экрана (или внизу, если вы на компьютере) можно настроить масштаб, повернуть изображение, включить или выключить пикселизацию, а также изменить цвет фона.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image">
+                    <picture>
+                        <source srcset="assets/gfx_squoosh/sq_overview3.avif">
+                        <img src="assets/gfx_squoosh/sq_overview3.webp">
+                    </picture>
+                </div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Пикселизация позволяет видеть увеличенное изображение в виде чётких пикселей, а не размыто.</div>
+            </div>
+            <div class="pageGFX">
+                <gallery id="gallery_squooshPixelization"></gallery>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Раскройте одну из панелей, и в выпадающем списке появятся несколько разных форматов.</div>
+                <div>Вы можете попробовать всё, что там есть, но здесь будет описана работа только с AVIF и WebP. "Original Image" вверху списка — оригинал изображения, которое вы загрузили.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image">
+                    <picture>
+                        <source srcset="assets/gfx_squoosh/sq_settings1.avif">
+                        <img src="assets/gfx_squoosh/sq_settings1.webp">
+                    </picture>
+                </div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Настройки AVIF и WebP идентичны. Вы можете выбрать сжатие без потерь, если это вам нужно, качество изображения на выходе, а также "усилия", или, проще говоря, время, которое разрешено использовать для конвертации.</div>
+                <div>Дополнительные настройки менять не нужно, за редким исключением.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image">
+                    <picture>
+                        <source srcset="assets/gfx_squoosh/sq_settings2.avif">
+                        <img src="assets/gfx_squoosh/sq_settings2.webp">
+                    </picture>
+                </div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Если вы попробуете использовать WebP без потерь, то панель будет выглядеть немного по-другому. Ползунка "Качество" нет — но есть "Slight loss".</div>
+                <div>Он определяет, насколько сильно можно терять детали в изображении. Это поможет уменьшить размер картинки на выходе, не слишком теряя её деталей.</div>
+                <div>Также есть две галочки снизу, но они (практически) ни на что не влияют.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image">
+                    <picture>
+                        <source srcset="assets/gfx_squoosh/sq_settings3.avif">
+                        <img src="assets/gfx_squoosh/sq_settings3.webp">
+                    </picture>
+                </div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>В самом верху панели управления можно заметить пункт "Resize". Он отвечает за увеличение или уменьшение вашего изображения.</div>
+                <div>Вы можете в процентах указать, насколько стоит увеличить или уменьшить картинку.</div>
+                <div>Также можно поэкспериментировать с алгоритмами масштабирования.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image">
+                    <picture>
+                        <source srcset="assets/gfx_squoosh/sq_settings4.avif">
+                        <img src="assets/gfx_squoosh/sq_settings4.webp">
+                    </picture>
+                </div>
+            </div>
+        </div>
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>На панелях управления будет видно, на сколько процентов размер получившейся картинки больше или меньше, чем размер исходного.</div>
+                <div>И, самое главное, — цветная кнопка загрузки, с помощью которой можно скачать ваше изображение в желаемом формате.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image">
+                    <picture>
+                        <source srcset="assets/gfx_squoosh/sq_download.avif">
+                        <img src="assets/gfx_squoosh/sq_download.webp">
+                    </picture>
+                </div>
+            </div>
+        </div>
+    </page>
+    <page class="auxPage" id="AUX_jpeg">
+        <div class="fullHeightBlockFlex">
+            <div class="pageText">
+                <div>Ещё не сделано.</div>
+            </div>
+            <div class="pageGFX">
+                <div class="GFX_image"></div>
+            </div>
+        </div>
+    </page>
+</body>
+<script src="script.js"></script>
 </html>

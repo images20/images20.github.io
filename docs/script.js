@@ -754,6 +754,5 @@ window.onresize = () => {
 
 detectMobile();
 goToPage(0);
-goToPage(15);
 
 /////////////////////////////////////

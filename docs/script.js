@@ -35,7 +35,7 @@ var siteStructure = [
             ["TIFF", 9],
             ["PNG", 10],
             ["JPEG", 11],
-            ["Как сжимает JPEG", 102],
+            ["Как сжимает JPEG", 102, S_EXTENDED],
             ["WebP", 12],
             ["HEIF", 13],
             ["AVIF", 14],
@@ -320,49 +320,6 @@ function interResolution_update() {
     interResolution_outputContainer.children[currentValue].classList.remove('opacityZero');
 }
 
-var interFileFormats_data = [
-    [".jpg",  "Изображение в формате JPEG"],
-    [".txt",  "Текстовый файл"],
-    [".png",  "Изображение в формате PNG"],
-    [".mp4",  "Видео"],
-    [".docx", "Документ Word"],
-    [".pdf",  "Документ PDF"],
-    [".exe",  "Приложение (исполняемый файл)"],
-    [".bmp",  "Изображение в формате BMP"],
-    [".mp3",  "Аудио"],
-    [".gif",  "Изображение в формате GIF"],
-    [".mkv",  "Видео"]
-];
-var interFileFormats_indexes = {prev: interFileFormats_data.length - 1, current: 0, next: 1};
-
-interFileFormats_listPrev.addEventListener('click', () => {
-    interFileFormats_indexes.current = interFileFormats_indexes.prev;
-    interFileFormats_createForCurrentIndex()});
-interFileFormats_listNext.addEventListener('click', () => {
-    interFileFormats_indexes.current = interFileFormats_indexes.next;
-    interFileFormats_createForCurrentIndex()
-});
-
-function interFileFormats_createForCurrentIndex() {
-    let index = interFileFormats_indexes.current;
-    let iPrev = index - 1, iNext = index + 1;
-
-    if (iPrev < 0) iPrev = interFileFormats_data.length - 1;
-    if (iNext >= interFileFormats_data.length) iNext = 0;
-    
-    interFileFormats_indexes.prev = iPrev;
-    interFileFormats_indexes.next = iNext;
-
-    interFileFormats_listPrev.innerText = interFileFormats_data[iPrev][0];
-    interFileFormats_listCurrent.innerText = interFileFormats_data[index][0];
-    interFileFormats_listNext.innerText = interFileFormats_data[iNext][0];
-
-    interFileFormats_image.style.backgroundImage = `url('assets/gfx_fileFormats/icon${interFileFormats_data[index][0]}.webp')`
-    interFileFormats_description.innerText = interFileFormats_data[index][1];
-}
-
-interFileFormats_createForCurrentIndex();
-
 document.createElementX = (tagName, innerHTML, classList, appendTo) => {
     let element = document.createElement(tagName);
     if (innerHTML) element.innerHTML = innerHTML;
@@ -514,7 +471,7 @@ class comparisonSystem {
     };
 }
 
-var comparisonTest = new comparisonSystem(comparisonContainerTest, 
+var comparisonTest = new comparisonSystem(comparisonContainerMain, 
     [
         {text: "Фотография 1",   intValue: 'gfx_comparison/photo1/p1_'},
         {text: "Фотография 2",   intValue: 'gfx_comparison/photo2/p2_'},
@@ -560,7 +517,7 @@ class imageGallery {
         this.element_description         = document.createElementX('div', null, 'gallery_description', mainFragment);
         this.element_controlsContainer   = document.createElementX('div', null, 'gallery_controlsContainer', mainFragment);
         this.element_ctrl_buttonLeft     = document.createElementX('div', "<icon>navigate_before</icon>", 'gallery_button gallery_buttonLeft', this.element_controlsContainer);
-        this.element_ctrl_dotsContainer  = document.createElementX('div', null, 'gallery_dotsConainer', this.element_controlsContainer);
+        this.element_ctrl_dotsContainer  = document.createElementX('div', null, 'gallery_dotsContainer', this.element_controlsContainer);
         this.element_ctrl_buttonRight    = document.createElementX('div', "<icon>navigate_next</icon>", 'gallery_button gallery_buttonRight', this.element_controlsContainer);
     
         let dotsFragment = document.createDocumentFragment();
@@ -728,6 +685,21 @@ var galleryInt_squooshPixelization = new imageGallery(gallery_squooshPixelizatio
     ]
 );
 
+var galleryInt_fileFormats = new imageGallery(gallery_fileFormats, 
+    [
+        ["gfx_fileFormats/icon.jpg.webp",  ".jpg | Изображение в формате JPEG"],
+        ["gfx_fileFormats/icon.txt.webp",  ".txt | Текстовый файл"],
+        ["gfx_fileFormats/icon.png.webp",  ".png | Изображение в формате PNG"],
+        ["gfx_fileFormats/icon.mp4.webp",  ".mp4 | Видео"],
+        ["gfx_fileFormats/icon.docx.webp", ".docx | Документ Word"],
+        ["gfx_fileFormats/icon.pdf.webp",  ".pdf | Документ PDF"],
+        ["gfx_fileFormats/icon.exe.webp",  ".exe | Приложение (исполняемый файл)"],
+        ["gfx_fileFormats/icon.bmp.webp",  ".bmp | Изображение в формате BMP"],
+        ["gfx_fileFormats/icon.mp3.webp",  ".mp3 | Аудио"],
+        ["gfx_fileFormats/icon.gif.webp",  ".gif | Изображение в формате GIF"],
+        ["gfx_fileFormats/icon.mkv.webp",  ".mkv | Видео"]
+    ]
+);
 
 function createGraph(targetElement, dataset) {
     let graphTable = document.createElement('table');
@@ -782,5 +754,6 @@ window.onresize = () => {
 
 detectMobile();
 goToPage(0);
+goToPage(15);
 
 /////////////////////////////////////

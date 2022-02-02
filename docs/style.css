@@ -1,4 +1,8 @@
 
+/*
+    Шрифты и иконки
+*/
+
 @font-face {
     font-family: 'Material Icons Round';
     font-style: normal;
@@ -45,6 +49,10 @@ icon {
     font-weight: 600;
 }
 
+/*
+    scrollbar (полоса прокрутки)
+*/
+
 * {
     scrollbar-width: none;
 }
@@ -69,18 +77,23 @@ icon {
     background-clip: padding-box;
 }
 
-.hidePages page {
-    display: none;
-}
+/*
+    Классы + класс .isOnMobile для телефонов
+*/
 
 .isOnMobile html {
     overflow: hidden !important;
 }
 .isOnMobile div.fullHeightBlockFlex {
-    flex-direction: column !important;
     justify-content: center !important;
     height: auto !important;
     min-height: 100vh !important;
+}
+.isOnMobile div.fullHeightBlockFlex.GFXfirst {
+    flex-direction: column-reverse !important
+}
+.isOnMobile div.fullHeightBlockFlex:not(.GFXfirst) {
+    flex-direction: column !important;
 }
 .isOnMobile div.fullHeightBlockFlex > * {
     flex-basis: auto !important;
@@ -99,44 +112,6 @@ icon {
     width: 100%;
     height: auto !important;
 }
-.isOnMobile #interColors_outputContainer {
-    flex-direction: row !important;
-    aspect-ratio: auto !important;
-}
-.isOnMobile #interColors_outputContainer.collapsed #interColors_output1 {
-    transform: translate(15%, 15%) !important;
-}
-.isOnMobile #interColors_outputContainer.collapsed #interColors_output2 {
-    transform: translate(-15%, -15%) !important;
-}
-.isOnMobile #interColors_fullscreenOutputContainer {
-    flex-direction: column !important;
-    width: 100% !important;
-    height: 140% !important;
-    top: -20% !important;
-    left: 0 !important
-}
-.isOnMobile #interColors_fullscreenOutputContainer .interColors_output {
-    width: 100% !important
-}
-.isOnMobile .interPanel {
-    margin: 16px 0;
-}
-
-.isOnMobile #interFileFormats_container {
-    display: flex;
-    flex-direction: column;
-}
-
-.isOnMobile #interFileFormats_container > div {
-    margin: 0 auto;
-}
-
-.isOnMobile #interFileFormats_description {
-    height: 2.5em;
-    font-size: 1.25em;
-    width: 100%;
-}
 
 .opacityZero {
     opacity: 0;
@@ -154,38 +129,18 @@ icon {
     opacity: 0;
     animation: none !important;
 }
+
 .page_displaynone .pageTitle * {
     animation: none !important;
 }
 
-.page_fadeout {
-    animation: anim_pagefadeout 1s ease 0s forwards;
+.noShadow, .noShadow * {
+    box-shadow: none !important;
 }
 
-page {
-    animation: anim_page_fadein 1s ease 0s forwards;
-}
-
-@keyframes anim_page_fadein {
-    0% {
-        transform: translateX(128px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-@keyframes anim_pagefadeout {
-    0% {
-        transform: translateX(0);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(-128px);
-        opacity: 1;
-    }
-}
+/*
+    Навигация
+*/
 
 .navButton {
 	position: fixed;
@@ -286,13 +241,30 @@ page {
     transform: translateX(380px);
 }
 
-#navbar_header, #navbar_progress {
+#navbar_header, #navbar_progress, #navbar_feedbackContainer {
 	font-weight: bold;
 	text-align: center;
     border-bottom: solid 1px #ccc;
 	font-size: 1.75em;
     line-height: 64px;
     position: relative;
+}
+
+#navbar_feedbackButton {
+    background: #57f;
+    margin: 16px;
+    border-radius: 6px;
+    color: white;
+    box-shadow: 0 3px 8px #0205;
+    font-size: 20px;
+    line-height: 52px;
+    text-align: center;
+    transition: 0.15s ease-out;
+}
+
+#navbar_feedbackButton:hover {
+    background: #46e;
+    box-shadow: 0 6px 16px #0208;
 }
 
 #navbar_header_closeButton {
@@ -450,7 +422,6 @@ body .waitingForUserInteraction {
     overflow: hidden !important;
 }
 
-
 #navOpenButton {
     animation: anim_easeRight 1.5s ease alternate forwards;
 }
@@ -458,6 +429,10 @@ body .waitingForUserInteraction {
 .onAuxPage #auxBackButton {
     animation: anim_easeLeft 1.5s ease alternate forwards;
 }
+
+/*
+    selectX: аналог <select>
+*/
 
 selectx {
     display: flex;
@@ -579,6 +554,9 @@ selectxlist div.selected:before {
     margin: 7px 0 !important;
 }
 
+/*
+    html & body
+*/
 
 html, body {
     margin: 0;
@@ -597,6 +575,10 @@ html, input, button {
     font-family: SegoeUI
 }
 
+/*
+    titleScreen: страница приветствия
+*/
+
 #titleScreen {
     height: 100%;
     width: 100%;
@@ -606,7 +588,7 @@ html, input, button {
     align-items: stretch;
     animation: anim_titleScreen_background 2s 2s ease alternate forwards;
     overflow: hidden;
-    position: relative;
+    z-index: 10;
 }
 
 #titleScreen > div {
@@ -824,6 +806,15 @@ body.waitingForUserInteraction #navOpenButton {
         opacity: 1;
     }
 }
+@keyframes anim_easeTop {
+    from {
+        opacity: 0;
+        transform: translateY(-32px);
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 @media (max-width: 1080px) {
     #titleScreen_sideRight {
@@ -857,6 +848,10 @@ body.waitingForUserInteraction #navOpenButton {
         width: calc(100vw - 32px);
     }
 }
+
+/*
+    ieWarning: предупреждение при использовании Internet Explorer
+*/
 
 #ieWarning {
     height: 100%;
@@ -933,6 +928,10 @@ body.showIEWarning {
     overflow: hidden !important;
 }
 
+/*
+    Основная разметка
+*/
+
 div.fullHeightBlock, div.fullHeightBlockFlex {
     padding: 48px 0;
     box-sizing: border-box;
@@ -1008,6 +1007,12 @@ div.GFX_image img {
     height: 80vh;
 }
 
+.GFX_image_logo img {
+    box-shadow: none !important;
+    max-width: 600px;
+    object-fit: contain;
+}
+
 div.pageText, div.pageText button {
     font-size: 32px;
 }
@@ -1025,6 +1030,17 @@ div.boldHeader {
     font-size: 3em;
 }
 
+@keyframes anim_page_fadein {
+    0% {
+        transform: translateX(128px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 page {
     display: block;
     position: absolute;
@@ -1034,6 +1050,7 @@ page {
     width: 100%;
     touch-action: pan-y;
     overflow-x: hidden;
+    animation: anim_page_fadein 1.25s ease 0s forwards;
 }
 
 page[intitle="Пиксель"] {
@@ -1097,6 +1114,10 @@ page[intitle="Пиксель"] .chapterTitleGFX {
 .pageTitle_absolute > div {
     flex-basis: auto !important;
 }
+
+/*
+    TITLE :: Типы графики
+*/
 
 .typesImgContainer {
     animation: anim_typesTitle_containerEase 3s 0.5s ease forwards;
@@ -1178,7 +1199,9 @@ page[intitle="Пиксель"] .chapterTitleGFX {
     }
 }
 
-
+/*
+    interColors & interResolution: демонстрация на страницах "Цвета" и "Разрешение"
+*/
 
 input[type=range] {
     -webkit-appearance: none;
@@ -1304,7 +1327,6 @@ input[type=range]:hover::-moz-range-thumb {
                 4px 0px 8px #25f8, -4px -0px 8px #51b8,
                 0px 4px 8px #0298, 0px -4px 8px #0298;
 }
-
 
 #interColors_outputContainer, #interResolution_outputContainer {
     aspect-ratio: 1;
@@ -1488,6 +1510,39 @@ body.interColors_fullscreen #interColors_fullscreen {
     pointer-events: all !important;
 }
 
+.isOnMobile #interColors_outputContainer {
+    flex-direction: row !important;
+    aspect-ratio: auto !important;
+}
+
+.isOnMobile #interColors_outputContainer.collapsed #interColors_output1 {
+    transform: translate(15%, 15%) !important;
+}
+
+.isOnMobile #interColors_outputContainer.collapsed #interColors_output2 {
+    transform: translate(-15%, -15%) !important;
+}
+
+.isOnMobile #interColors_fullscreenOutputContainer {
+    flex-direction: column !important;
+    width: 100% !important;
+    height: 140% !important;
+    top: -20% !important;
+    left: 0 !important
+}
+
+.isOnMobile #interColors_fullscreenOutputContainer .interColors_output {
+    width: 100% !important
+}
+
+.isOnMobile .interPanel {
+    margin: 16px 0;
+}
+
+/*
+    d+expl: сноски
+*/
+
 .explNotUsed d {
     text-shadow: 0 0 16px #47f;
     border-color: #47f;
@@ -1528,6 +1583,10 @@ d.dExpl_opened::after {
     box-shadow: 0 0 24px #0005 inset;
     border-radius: 4px;
 }
+
+/*
+    interFileFormats: демонстрация типов файлов
+*/
 
 #interFileFormats_container {
     display: grid;
@@ -1650,12 +1709,24 @@ extitem {
     transform: translateY(-50%);
 }
 
-#comparisonContainerTest {
+.isOnMobile #interFileFormats_container {
     display: flex;
-    flex-direction: column-reverse;
-    gap: 16px;
+    flex-direction: column;
 }
 
+.isOnMobile #interFileFormats_container > div {
+    margin: 0 auto;
+}
+
+.isOnMobile #interFileFormats_description {
+    height: 2.5em;
+    font-size: 1.25em;
+    width: 100%;
+}
+
+/*
+    comparisonSystem: сравнение изображений
+*/
 
 .comparison_squareLocked .comparison-viewContainer {
     aspect-ratio: 1;
@@ -1667,6 +1738,9 @@ extitem {
 
 
 .comparison-container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 16px;
     height: 90vh;
     padding: 6px;
 }
@@ -1737,7 +1811,9 @@ extitem {
     color: white;
 }
 
-
+/*
+    gallery: фотогалерея
+*/
 
 gallery {
     background: #f2f2f2;
@@ -1775,13 +1851,14 @@ gallery {
     align-items: center;
 }
 
-.gallery_dotsConainer {
+.gallery_dotsContainer {
     display: flex !important;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-.gallery_dotsConainer dot {
+.gallery_dotsContainer dot {
     width: 10px;
     height: 10px;
     border-radius: 8px;
@@ -1789,7 +1866,7 @@ gallery {
     background: #aaa;
 }
 
-.gallery_dotsConainer dot.active {
+.gallery_dotsContainer dot.active {
     background: #57f;
 }
 
@@ -1827,11 +1904,18 @@ gallery {
     image-rendering: pixelated;
 }
 
+#gallery_fileFormats .gallery_image {
+    aspect-ratio: 1;
+    max-width: 360px;
+}
+
 #gallery_pngVsGif .gallery_image {
     background: #333;
 }
 
-
+/*
+    gotoCard: карточка перехода между страницами
+*/
 
 gotoCard {
     display: flex;
@@ -1957,7 +2041,6 @@ gotoCard:hover gcIconBackground {
     box-shadow: 16px 12px 48px #9476, -16px -12px 48px #21d4;
 }
 
-
 .scrollTooltip {
     display: flex;
     align-items: center;
@@ -2001,10 +2084,6 @@ gotoCard:hover gcIconBackground {
 .imagePixelComparison > img {
     width: 40vw !important;
 }
-
-
-
-
 
 .bodyState_introNotDone #navOpenButton,
 .bodyState_introNotDone #chapterTitle_PIXEL .chapterTitle {
@@ -2148,7 +2227,7 @@ gotoCard:hover gcIconBackground {
     scale: 0.75;
 }
 
-imglink {
+imglink, a {
     color: #35e;
     border-bottom: 2px solid #35e;
     cursor: pointer;
@@ -2156,7 +2235,7 @@ imglink {
     user-select: none;
 }
 
-imglink:hover {
+imglink:hover, a:hover {
     color: #57f;
     border-bottom: 2px solid #57f;
     text-shadow: 0 1px 2px #0016;
@@ -2231,7 +2310,13 @@ imglink:hover {
     z-index: -2;
     width: auto !important;
     height: auto !important;
-    aspect-ratio: 10 / 7 !important;
+    aspect-ratio: 10 / 7;
+}
+
+.isOnMobile .compressionTitleContainer {
+    max-width: calc(100% - 32px);
+    max-height: calc(100% - 32px);
+    aspect-ratio: auto !important;
 }
 
 .compressionTitleContainer #compressionTitleRect_grey {
@@ -2260,13 +2345,29 @@ imglink:hover {
 
 #compressionTitle_size {
     position: absolute;
-    bottom: 48px;
     left: 0; right: 0;
+    bottom: 0; top: 0;
+    height: 96px;
     margin: auto;
-    font-size: 48px;
-    color: #222;
+    font-size: 64px;
+    line-height: 96px;
+    color: #fff;
     text-align: center;
+    font-weight: bold;
+    animation: anim_easeTop 1s 3.5s ease forwards reverse;
 }
+
+.colorsTitleContainer {
+    opacity: 0;
+    animation: anim_colorsTitle_containerEase 4s 0.5s ease-in-out forwards;
+}
+page[intitle="Сжатие"] .chapterTitle {
+    animation: anim_easeBottom 1s 4s ease forwards;
+}
+
+/*
+    TITLE :: Цвета
+*/
 
 @keyframes anim_colorsTitle_containerEase {
     from {
@@ -2316,7 +2417,7 @@ page[intitle="Цвета"] .chapterTitle {
     max-height: calc(100% - 256px);
 }
 
-.comparionTitleCircle {
+.comparisonTitleCircle {
     background: white;
     border: solid 32px salmon;
     max-height: 100%;
@@ -2331,7 +2432,7 @@ page[intitle="Цвета"] .chapterTitle {
     box-shadow: 0 16px 64px salmon;
 }
 
-.comparionTitleImage_left, .comparionTitleImage_right {
+.comparisonTitleImage_left, .comparisonTitleImage_right {
     aspect-ratio: 1;
     max-height: 100%;
     max-width: 100%;
@@ -2345,32 +2446,56 @@ page[intitle="Цвета"] .chapterTitle {
     box-shadow: 0 0 64px #0018;
 }
 
-.comparionTitleImage_left {
+.comparisonTitleImage_left {
     background: url('assets/gfx_titleImages/comparison/2.webp');
     top: 0;
     left: 0;
     transform: translate(-50%);
 }
 
-.comparionTitleImage_right {
+.comparisonTitleImage_right {
     background: url('assets/gfx_titleImages/comparison/1.webp');
     bottom: 0;
     right: 0;
     transform: translate(50%);
 }
 
-.isOnMobile .comparionTitleImage_left {
+.page_displaynone .comparisonTitleImage_left {
+    translate: 100% 0;
+    opacity: 0;
+    rotate: 90deg;
+}
+.page_displaynone .comparisonTitleImage_right {
+    translate: -100% 0;
+    opacity: 0;
+    rotate: 90deg;
 }
 
-.isOnMobile .comparionTitleImage_right {
+.comparisonTitleImage_left {
+    background: url('assets/gfx_titleImages/comparison/2.webp');
+    top: 0;
+    left: 0;
+    transform: translate(-50%);
+    transition: 2s ease;
 }
 
-
-.GFX_image_logo img {
-    box-shadow: none !important;
-    max-width: 600px;
-    object-fit: contain;
+.comparisonTitleImage_right {
+    background: url('assets/gfx_titleImages/comparison/1.webp');
+    bottom: 0;
+    right: 0;
+    transform: translate(50%);
+    transition: 2s ease;
 }
+
+page[intitle="Сравнение"] .fullHeightBlockFlex .pageText {
+    background: #fff8;
+    backdrop-filter: blur(6px);
+    z-index: 8;
+}
+
+/*
+    graph: график
+*/
 
 graph {
     display: block;
@@ -2389,7 +2514,6 @@ graph table tr {
     height: 90px
 }
 
-
 graph table tr td:first-child {
     width: 120px;
     text-align: center;
@@ -2405,8 +2529,4 @@ graphBar {
     background: linear-gradient(-135deg, #7ae, #36f);
     box-shadow: 0 8px 16px #1046;
     transition: 2s ease;
-}
-
-.noShadow, .noShadow * {
-    box-shadow: none !important;
 }

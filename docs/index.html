@@ -51,6 +51,9 @@
             <div id="navbar_progress_text">0% пройдено</div>
             <progress id="navbar_progress_bar" value="0.25"></progress>
         </div>
+        <div id="navbar_feedbackContainer">
+            <div id="navbar_feedbackButton">Возникли проблемы?</div>
+        </div>
         <div id="navbar_links"></div>
     </div>
     <img id="imageCloseup"></img>
@@ -443,6 +446,7 @@
                 <div>И теперь стоит приступить к рассмотрению самих форматов растровых изображений. Первый на очереди — BMP.</div>
             </div>
             <div class="pageGFX">
+                <!--
                 <div id="interFileFormats_container" class="collapsed">
                     <div id="interFileFormats_image" class="interFileFormats_output"></div>
                     <div id="interFileFormats_description" class="interFileFormats_output"></div>
@@ -455,7 +459,8 @@
                         <div id="interFileFormats_listGradientTop"></div>
                         <div id="interFileFormats_listGradientBottom"></div>
                     </div>
-                </div>
+                </div>-->
+                <gallery id="gallery_fileFormats"></gallery>
             </div>
         </div>
         <gotoCard onclick="goToPage('+')">
@@ -699,9 +704,9 @@
         <div class="fullHeightBlockFlex pageTitle pageTitle_absolute">
             <div class="chapterTitle">Сравнение</div>
             <div class="chapterTitleGFX comparisonTitleContainer">
-                <div class="comparionTitleImage_left"></div>
-                <div class="comparionTitleImage_right"></div>
-                <div class="comparionTitleCircle"></div>
+                <div class="comparisonTitleImage_left"></div>
+                <div class="comparisonTitleImage_right"></div>
+                <div class="comparisonTitleCircle"></div>
             </div>
         </div>
         <div class="fullHeightBlockFlex">
@@ -715,12 +720,12 @@
             </div>
         </div>
         <div class="fullHeightBlock">
-            <div id="comparisonContainerTest"></div>
+            <div id="comparisonContainerMain"></div>
         </div>
         <div class="fullHeightBlock">
             <div class="pageText">
                 <div>Кроме сжатия с потерями, есть ещё сжатие без потерь. Там тоже есть сильные различия.</div>
-                <div>Вот средние результаты моих тестов:</div>
+                <div>Ниже приведены результаты моих тестов. На диаграмме показаны соотношения размеров получившихся файлов в разных форматах.</div>
             </div>
         </div>
         <graph id="comparisonLosslessGraphContainer"></graph>
@@ -747,7 +752,7 @@
         </div>
         <div class="fullHeightBlock">
             <div class="pageText">
-                <div><b>2. Фотографии сохраняйnе в HEIF или AVIF.</b> Можно также и в WebP, но HEIF получить легче всего — скорее всего, ваш телефон может сохранять снимки в этом формате.</div>
+                <div><b>2. Фотографии сохраняйте в HEIF или AVIF.</b> Можно также и в WebP, но HEIF получить легче всего — скорее всего, ваш телефон может сохранять снимки в этом формате.</div>
                 <div>Если вы хотите сэкономить пространство на своих устройствах, то вы можете следовать следующим советам:</div>
                 <div>На iPhone так происходит по-умолчанию, на большинстве смартфонов на Android – нет. Поэтому вам придется в настройках камеры включить сохранение фотографий в HEIF.</div>
                 <div>Это сильно поможет для сохранения ценного места на телефоне.</div>

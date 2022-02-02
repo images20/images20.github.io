@@ -625,11 +625,11 @@ var galleryInt_natureFractals =  new imageGallery(gallery_natureFractals,
 
 var galleryInt_vector =  new imageGallery(gallery_vector, 
     [
-        ["gfx_types/fractals/nature1.avif", "Капуста романеско"],
-        ["gfx_types/fractals/nature2.avif", "Раковина наутилуса"],
-        ["gfx_types/fractals/nature3.avif", "Молнии"],
-        ["gfx_types/fractals/nature4.avif", "Снежинка"],
-        ["gfx_types/fractals/nature5.avif", "Кристаллы"]
+        ["gfx_types/types/bananas.svg", "Векторные картинки"],
+        ["gfx_types/types/cat.svg", "Векторные картинки"],
+        ["gfx_types/types/letter.svg", "Векторные картинки"],
+        ["gfx_types/types/popper.svg", "Векторные картинки"],
+        ["gfx_types/types/sunflower.svg", "Векторные картинки"]
     ]
 );
 

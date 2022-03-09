@@ -84,6 +84,9 @@ icon {
 .isOnMobile html {
     overflow: hidden !important;
 }
+.isOnMobile div.pageText {
+    font-size: 28px;
+}
 .isOnMobile div.fullHeightBlockFlex {
     justify-content: center !important;
     height: auto !important;
@@ -138,9 +141,16 @@ icon {
     box-shadow: none !important;
 }
 
+div.fullHeightBlock.noGFX {
+    max-width: 1500px;
+    margin: auto;
+}
+
+
 /*
     Навигация
 */
+
 
 .navButton {
 	position: fixed;
@@ -569,6 +579,9 @@ html, body {
     touch-action: none;
     background: #fff;
     color: #000;
+    top: 0;
+    left: 0;
+    position: fixed;
 }
 
 html, input, button {
@@ -586,7 +599,7 @@ html, input, button {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    animation: anim_titleScreen_background 2s 2s ease alternate forwards;
+    animation: anim_titleScreen_background 2s 4s ease alternate forwards;
     overflow: hidden;
     z-index: 10;
 }
@@ -611,7 +624,7 @@ html, input, button {
     user-select: none;
     opacity: 0;
     z-index: 2;
-    animation: anim_easeLeft 1s 1s ease alternate forwards;
+    animation: anim_easeLeft 1s 2.5s ease alternate forwards;
 }
 
 #titleScreen_sideLeft {
@@ -622,7 +635,7 @@ html, input, button {
     min-width: 672px;
     z-index: 1;
     opacity: 0;
-    animation: anim_titleScreen_reelOpacity 2s 2s ease alternate forwards;
+    animation: anim_titleScreen_reelOpacity 2s 4s ease alternate forwards;
 }
 
 #titleScreen_sideLeftContainer {
@@ -646,7 +659,7 @@ html, input, button {
     height: 100%;
     visibility: hidden;
     opacity: 0;
-    animation: anim_titleScreen_reelOpacity 2s 1.5s ease alternate forwards;
+    animation: anim_titleScreen_reelOpacity 2s 3s ease alternate forwards;
 }
 
 div#titleScreen_startButton_container {
@@ -709,7 +722,7 @@ div#titleScreen_startButton_button:hover > div#titleScreen_startButton_button_ri
 body.waitingForUserInteraction div#titleScreen_startButton_button {
     opacity: 0;
     pointer-events: all;
-    animation: anim_easeLeft 1.5s 3s ease alternate forwards;
+    animation: anim_easeLeft 1.5s 5s ease alternate forwards;
 }
 
 body.waitingForUserInteraction #navOpenButton {
@@ -1113,6 +1126,17 @@ page[intitle="Пиксель"] .chapterTitleGFX {
 
 .pageTitle_absolute > div {
     flex-basis: auto !important;
+}
+
+.thinTitle {
+    text-align: center;
+    font-weight: bold;
+    font-size: 52px;
+    padding: 16px;
+    padding-top: 64px;
+    color: #57f;
+    text-shadow: 0 4px 8px #57f4;
+    user-select: none;
 }
 
 /*
@@ -1767,6 +1791,7 @@ extitem {
     border-radius: 6px;
     flex-shrink: 1;
     flex-grow: 1;
+    touch-action: none;
 }
 
 .comparison-view {
@@ -1799,6 +1824,30 @@ extitem {
     cursor: ew-resize;
     user-select: none;
 }
+
+.comparison-container-VERTICAL .comparison-viewContainer {
+    flex-direction: column;
+}
+
+.comparison-container-VERTICAL .comparison-viewDrag {
+    height: 16px !important;
+    width: 100% !important;
+    cursor: n-resize !important;
+}
+
+.comparison-container-VERTICAL .comparison-viewLeft {
+    flex-grow: 0;
+    background-position: center top;
+}
+
+.comparison-container-VERTICAL .comparison-viewRight {
+    background-position: center bottom;
+}
+
+.comparison-container-VERTICAL {
+    height: 90vh !important;
+}
+
 
 #chapterTitle_PIXEL {
     background: black;
@@ -1862,7 +1911,7 @@ gallery {
     width: 10px;
     height: 10px;
     border-radius: 8px;
-    margin: 0 10px;
+    margin: 2px 10px;
     background: #aaa;
 }
 
@@ -1875,7 +1924,7 @@ gallery {
     height: 64px;
     background: linear-gradient(-135deg, #7ae, #36f);
     border-radius: 48px;
-    margin: 0 32px !important;
+    margin: 0 24px !important;
     transition: 0.2s ease-out;
     box-shadow: 0 2px 4px #0004;
     border: solid 1px #9cf;
@@ -2046,7 +2095,7 @@ gotoCard:hover gcIconBackground {
     align-items: center;
     font-size: 28px;
     color: white;
-    position: fixed;
+    position: absolute;
     bottom: 48px;
     left: 0; right: 0;
     margin: auto;
@@ -2233,6 +2282,7 @@ imglink, a {
     cursor: pointer;
     transition: 0.2s ease-out;
     user-select: none;
+    text-decoration: none;
 }
 
 imglink:hover, a:hover {
@@ -2363,6 +2413,12 @@ imglink:hover, a:hover {
 }
 page[intitle="Сжатие"] .chapterTitle {
     animation: anim_easeBottom 1s 4s ease forwards;
+}
+
+.pageTitle_files {
+    background: url('assets/gfx_titleImages/filesTitle.webp');
+    background-position: center;
+    background-size: cover;
 }
 
 /*
@@ -2529,4 +2585,114 @@ graphBar {
     background: linear-gradient(-135deg, #7ae, #36f);
     box-shadow: 0 8px 16px #1046;
     transition: 2s ease;
+}
+
+#gfxGif_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gfxGif_msg {
+    display: flex !important;
+    flex-direction: row;
+    width: fit-content !important;
+    margin: 8px 0 !important;
+    gap: 12px;
+    flex-basis: 33%;
+    width: 100% !important;
+    flex-grow: 0;
+    flex-shrink: 0;
+    opacity: 0;
+    animation: anim_easeLeft 1.5s 1s ease alternate forwards;
+}
+
+.gfxGif_msg:nth-child(2) {
+    animation: anim_easeLeft 1.5s 2s ease alternate forwards;
+}
+
+.gfxGif_msg img {
+    display: block;
+    border-radius: 8px;
+    margin: 0;
+    box-shadow: 0 4px 12px #0006;
+}
+
+.gfxGif_msgRight {
+    justify-content: right;
+    animation: anim_easeRight 1.5s 3s ease alternate forwards;
+}
+
+.gfxGif_msgRight img {
+    border: solid 8px #47f;
+    box-sizing: border-box;
+}
+
+.gfxGif_msgProfilePic {
+    width: 56px;
+    height: 56px;
+    margin: 0 !important;
+    border-radius: 100%;
+    line-height: 56px;
+    font-size: 32px;
+    text-align: center;
+    flex-shrink: 0;
+    user-select: none;
+    box-shadow: 0 4px 12px #0006;
+    background: linear-gradient(45deg, #9cf, #57c);
+    color: #246;
+}
+
+.gfxGif_msgProfilePic_alt {
+    background: linear-gradient(45deg, #f99, #f58);
+    color: #624;
+}
+
+@media (max-width: 1660px) {
+    html:not(.isOnMobile) #gfxGif_container {
+        width: 50%;
+    }
+    .gfxGif_msg img {
+        max-width: 60%;
+    }
+    html:not(.isOnMobile) .gfxGif_msgRight {
+        justify-self: right;
+    }
+}
+
+.page_displaynone .gfxGif_msg {
+    animation: none !important;
+}
+
+#loadShield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 900;
+    transition: 0.25s ease;
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+#loadShield_spinner {
+    position: fixed;
+    top: 0; left: 0;
+    right: 0; bottom: 0;
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    background: conic-gradient(#0000, #666 360deg);
+    border-radius: 100%;
+    animation: spinner 3s linear forwards infinite;
 }

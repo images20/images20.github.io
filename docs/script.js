@@ -24,7 +24,7 @@ var siteStructure = [
             ["Виды графики", 4],
             ["Больше фракталов!", 100, S_EXTENDED],
             ["Сжатие", 5],
-            ["Файлы. Форматы и расширения", 6],
+            ["Файлы, форматы и расширения", 6],
         ]
     },
     {
@@ -35,7 +35,6 @@ var siteStructure = [
             ["TIFF", 9],
             ["PNG", 10],
             ["JPEG", 11],
-            ["Как сжимает JPEG", 102, S_EXTENDED],
             ["WebP", 12],
             ["HEIF", 13],
             ["AVIF", 14],
@@ -82,8 +81,14 @@ function goToPage(index) {
     }
     currentPage.classList.remove('page_displaynone');
     for (let videoElement of currentPage.getElementsByTagName('video')) {
-        videoElement.oncansee = () => videoElement.play();
+        console.log(videoElement);
+        videoElement.oncansee = () => {
+            videoElement.play();
+        }
         videoScrollAutoPlayPause(videoElement, window.innerHeight);
+        currentPage.onscroll = () => {
+            videoScrollAutoPlayPause(videoElement, window.innerHeight);
+        }
     }
     for (let galleryElement of currentPage.getElementsByTagName('gallery')) {
         galleryElement.galleryInt.autoScrollInterval.resume();
@@ -114,8 +119,13 @@ auxBackButton.onclick = () => {
     })
 });
 
-[...document.getElementsByClassName('fullHeightBlockFlex')].forEach(element => {
-    if (element.children[0].classList.contains('pageGFX')) element.classList.add('GFXfirst');
+let fullHeightBlocks = [...document.querySelectorAll('.fullHeightBlockFlex, .fullHeightBlock')];
+
+fullHeightBlocks.forEach(element => {
+    if (element.children.length == 1 && element.children[0].classList.contains('pageText')) {
+        element.classList.add('noGFX');
+    }
+    else if (element.children[0].classList.contains('pageGFX')) element.classList.add('GFXfirst')
 });
 
 
@@ -193,6 +203,7 @@ function videoScrollAutoPlayPause(element, viewportHeight) {
     }
 }
 
+document.querySelector('#chapterTitle_PIXEL video').playbackRate = 1.1;
 document.querySelector('#chapterTitle_PIXEL video').onended = () => { document.body.classList.remove('bodyState_introNotDone') };
 
 
@@ -388,6 +399,8 @@ class comparisonSystem {
         this.modifiersFormats = modifiersFormats;
         this.modifiersImages  = modifiersImages;
 
+        this.orientation = 'horizontal';
+
         this.element_main        = targetElement;
         this.element_main.classList.add('comparison-container');
     
@@ -398,25 +411,7 @@ class comparisonSystem {
     
         this.element_controls    = document.createElementX('div', null, 'comparison-controlContainer', this.element_main);
     
-    
-        this.element_viewLeft.style.backgroundSize = this.element_viewRight.style.backgroundSize = this.element_views.getBoundingClientRect().width + "px";
-    
-        this.element_viewDrag.onpointerdown = (event1) => {
-            event1.preventDefault();
-            let rectInfo = this.element_views.getBoundingClientRect();
-            document.onpointermove = (event2) => {
-                event2.preventDefault();
-                if ((event2.clientX - rectInfo.left) < 0) {
-                    this.element_viewLeft.style.width = "0%";
-                }
-                else if ((this.element_views.offsetWidth + rectInfo.left) < event2.clientX) {
-                    this.element_viewLeft.style.width = "100%"
-                }
-                else {
-                    this.element_viewLeft.style.width = Math.round( (event2.clientX - rectInfo.left) / rectInfo.width * 10000) / 100 + "%";
-                }
-            }
-        }
+
         document.onpointerup = () => {
             document.onpointermove = null;
         }
@@ -433,20 +428,69 @@ class comparisonSystem {
         this.element_selectX_imagePrefix.choose(0);
         this.element_selectX_rightFormat.choose(1);
 
-        this.element_viewLeft.style.width = "50%";
         this.element_main.comparisonSystemInt = this;
+    }
+    changeOrientation = (orientation) => {
+        this.orientation = orientation;
+        if (orientation == 'vertical') {
+            this.element_viewLeft.style.width = '100%';
+            this.element_main.classList.add('comparison-container-VERTICAL');
+            this.element_viewLeft.style.backgroundSize = this.element_viewRight.style.backgroundSize = this.element_views.getBoundingClientRect().height + "px";
+            
+            this.element_viewDrag.onpointerdown = (event1) => {
+                event1.preventDefault();
+                let rectInfo = this.element_views.getBoundingClientRect();
+                document.onpointermove = (event2) => {
+                    event2.preventDefault();
+                    if ((event2.clientY - rectInfo.top) < 0) {
+                        this.element_viewLeft.style.height = "0%";
+                    }
+                    else if ((this.element_views.offsetHeight + rectInfo.top) < event2.clientY) {
+                        this.element_viewLeft.style.height = "100%"
+                    }
+                    else {
+                        this.element_viewLeft.style.height = Math.round( (event2.clientY - rectInfo.top) / rectInfo.height * 10000) / 100 + "%";
+                    }
+                }
+            }
+        }
+        else {
+            this.element_viewLeft.style.height = '100%';
+            this.element_main.classList.remove('comparison-container-VERTICAL');
+            this.element_viewLeft.style.backgroundSize = this.element_viewRight.style.backgroundSize = this.element_views.getBoundingClientRect().width + "px";
+            
+            this.element_viewDrag.onpointerdown = (event1) => {
+                event1.preventDefault();
+                let rectInfo = this.element_views.getBoundingClientRect();
+                document.onpointermove = (event2) => {
+                    event2.preventDefault();
+                    if ((event2.clientX - rectInfo.left) < 0) {
+                        this.element_viewLeft.style.width = "0%";
+                    }
+                    else if ((this.element_views.offsetWidth + rectInfo.left) < event2.clientX) {
+                        this.element_viewLeft.style.width = "100%"
+                    }
+                    else {
+                        this.element_viewLeft.style.width = Math.round( (event2.clientX - rectInfo.left) / rectInfo.width * 10000) / 100 + "%";
+                    }
+                }
+            }
+        }
     }
     resizeImages = () => {
         let rectInfo = this.element_main.getBoundingClientRect();
         let bgSizeValue = rectInfo.width - 12;
-        if (rectInfo.height - 222 >= rectInfo.width - 12) {
-            this.element_main.classList.add('comparison_squareLocked');
+        if (rectInfo.height - 222 <= rectInfo.width - 12) {
+            this.changeOrientation('horizontal');
+            //this.element_main.classList.add('comparison_squareLocked');
             bgSizeValue = window.innerWidth - 12;
         }
         else {
-            this.element_main.classList.remove('comparison_squareLocked');
+            this.changeOrientation('vertical');
+            //this.element_main.classList.add('comparison_squareLocked');
+            bgSizeValue = this.element_views.offsetHeight;
         }
-        this.element_viewLeft.style.backgroundSize = this.element_viewRight.style.backgroundSize = bgSizeValue + "px";
+        //this.element_viewLeft.style.backgroundSize = this.element_viewRight.style.backgroundSize = bgSizeValue + "px";
     }
     refreshView = (which) => {
         if (which == 'left') {
@@ -470,6 +514,13 @@ class comparisonSystem {
         this.refreshView('right');
     };
 }
+
+
+
+//this.element_viewLeft.style.width = "50%";
+
+
+
 
 var comparisonTest = new comparisonSystem(comparisonContainerMain, 
     [
@@ -641,6 +692,7 @@ var galleryInt_compression =  new imageGallery(gallery_compression,
     ]
 );
 
+/*
 var galleryInt_gif1 =  new imageGallery(gallery_gif1, 
     [
         ["gfx_formats/gif/a1.webp", "GIF-анимации"],
@@ -648,6 +700,7 @@ var galleryInt_gif1 =  new imageGallery(gallery_gif1,
         ["gfx_formats/gif/a3.webp", "GIF-анимации"]
     ]
 );
+*/
 
 var galleryInt_gif2 =  new imageGallery(gallery_gif2, 
     [
@@ -754,5 +807,13 @@ window.onresize = () => {
 
 detectMobile();
 goToPage(0);
+
+if (!navigator.userAgent.includes('Windows')) showOnWindows.style.display = 'none';
+
+for (let img of document.getElementsByTagName('img')) {
+    img.setAttribute('draggable', 'false');
+}
+
+setTimeout(() => loadShield.classList.add('displaynone'), 1000);
 
 /////////////////////////////////////

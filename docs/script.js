@@ -559,12 +559,13 @@ class imageGallery {
         this.dataset = dataset;
         this.currentIndex = -1;
         this.dotElements  = [];
+        this.imageElements = [];
 
         this.autoScrollInterval = new IntervalX(() => this.navigate('forward'), 10000, true);
     
         let mainFragment = document.createDocumentFragment();
     
-        this.element_imageContainer      = document.createElementX('div', null, 'gallery_image', mainFragment);
+        this.element_imageContainer      = document.createElementX('div', null, 'gallery_imageContainer', mainFragment);
         this.element_description         = document.createElementX('div', null, 'gallery_description', mainFragment);
         this.element_controlsContainer   = document.createElementX('div', null, 'gallery_controlsContainer', mainFragment);
         this.element_ctrl_buttonLeft     = document.createElementX('div', "<icon>navigate_before</icon>", 'gallery_button gallery_buttonLeft', this.element_controlsContainer);
@@ -573,9 +574,13 @@ class imageGallery {
     
         let dotsFragment = document.createDocumentFragment();
         for (let i = 0; i < this.dataset.length; i++) {
-            let element = document.createElement('dot');
-            this.dotElements.push(element);
-            dotsFragment.appendChild(element);
+            let elementDot = document.createElement('dot');
+            this.dotElements.push(elementDot);
+            dotsFragment.appendChild(elementDot);
+
+            let elementImg = document.createElementX('div', null, 'gallery_image', this.element_imageContainer);
+            elementImg.style.backgroundImage = `url('assets/${this.dataset[i][0]}')`;
+            this.imageElements.push(elementImg);
         }
         this.element_ctrl_dotsContainer.appendChild(dotsFragment);
     
@@ -607,7 +612,10 @@ class imageGallery {
             this.currentIndex++;
             if (this.currentIndex == this.dataset.length) this.currentIndex = 0;
         }
-        this.element_imageContainer.style.backgroundImage = `url('assets/${this.dataset[this.currentIndex][0]}')`;
+        for (let element of this.imageElements) {
+            element.classList.add('opacityZero');
+        }
+        this.imageElements[this.currentIndex].classList.remove('opacityZero');
         this.element_description.innerHTML = this.dataset[this.currentIndex][1];
         this.updateDot();
     }

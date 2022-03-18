@@ -1876,16 +1876,27 @@ gallery {
     user-select: none;
 }
 
-.gallery_image {
+.gallery_imageContainer {
     background-color: #f2f2f2;
     border-radius: 6px;
+    transition: 0.2s ease;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery_image {
+    position: absolute;
+    top: 0; left: 0;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
     transition: 0.2s ease;
     width: 100%;
-    aspect-ratio: 3 / 2;
+    height: 100%;
 }
+
 
 .gallery_description {
     line-height: 36px;
@@ -1944,21 +1955,21 @@ gallery {
     color: #fff;
 }
 
-#gallery_test .gallery_image {
+#gallery_test .gallery_imageContainer {
     height: 400px;
 }
 
-.gallery_square .gallery_image {
+.gallery_square .gallery_imageContainer {
     aspect-ratio: 1;
     image-rendering: pixelated;
 }
 
-#gallery_fileFormats .gallery_image {
+#gallery_fileFormats .gallery_imageContainer {
     aspect-ratio: 1;
     max-width: 360px;
 }
 
-#gallery_pngVsGif .gallery_image {
+#gallery_pngVsGif .gallery_imageContainer {
     background: #333;
 }
 
@@ -2695,4 +2706,8 @@ graphBar {
     background: conic-gradient(#0000, #666 360deg);
     border-radius: 100%;
     animation: spinner 3s linear forwards infinite;
+}
+
+.isOnMobile .gifFirstFHB {
+    flex-direction: column !important;
 }

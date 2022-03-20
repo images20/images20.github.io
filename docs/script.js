@@ -652,6 +652,7 @@ compressionTitleRect_red.onanimationstart = () => {
 
 
 function loadGalleries() {
+    console.log('Loading galleries...');
     var galleryInt_pixel =  new imageGallery(gallery_pixel, 
         [
             ["gfx_pixel/pixel2.webp", "Логические пиксели (на устройстве)"],
@@ -809,7 +810,7 @@ window.onresize = () => {
     comparisonTest.resizeImages();
 };
 
-pixelVideoIntro.onload = () => loadGalleries();
+pixelIntroVideo.onload = () => loadGalleries();
 
 detectMobile();
 goToPage(0);

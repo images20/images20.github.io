@@ -446,14 +446,16 @@ class comparisonSystem {
     }
     changeOrientation = (orientation) => {
         this.orientation = orientation;
+        let rectInfo = this.element_views.getBoundingClientRect();
         if (orientation == 'vertical') {
             this.element_viewLeft.style.width = '100%';
             this.element_main.classList.add('comparison-container-VERTICAL');
-            this.element_viewLeft.style.backgroundSize = this.element_viewRight.style.backgroundSize = this.element_views.getBoundingClientRect().height + "px";
+            this.element_viewLeft.style.backgroundSize = this.element_viewRight.style.backgroundSize = 'auto ' + rectInfo.height + 'px';
             
             this.element_viewDrag.onpointerdown = (event1) => {
                 event1.preventDefault();
                 let rectInfo = this.element_views.getBoundingClientRect();
+                this.element_viewLeft.style.backgroundSize = this.element_viewRight.style.backgroundSize = 'auto ' + rectInfo.height + 'px';
                 document.onpointermove = (event2) => {
                     event2.preventDefault();
                     if ((event2.clientY - rectInfo.top) < 0) {
@@ -463,7 +465,9 @@ class comparisonSystem {
                         this.element_viewLeft.style.height = "100%"
                     }
                     else {
-                        this.element_viewLeft.style.height = Math.round( (event2.clientY - rectInfo.top) / rectInfo.height * 10000) / 100 + "%";
+                        let heightValue = Math.round( (event2.clientY - rectInfo.top) / rectInfo.height * 10000) / 100 + "%";
+                        this.element_viewLeft.style.height = heightValue;
+                        this.element_viewLeft.style.backgroundPosition = this.element_viewRight.style.backgroundPosition = 'center' + heightValue + "px";
                     }
                 }
             }
@@ -779,6 +783,12 @@ let comparisonLosslessGraph = createGraph(comparisonLosslessGraphContainer,
 
 document.addEventListener('DOMContentLoaded',  () => {
     comparisonTest.resizeImages();
+    if (comparisonTest.orientation == 'vertical') {
+        comparisonTest.element_viewLeft.style.height = '50%';
+    }
+    else {
+        comparisonTest.element_viewLeft.style.width = '50%';
+    }
     titleScreen_reelContainer.style.animation = "anim_titleScreen_reelScroll 60s 2s linear infinite";
     for (let page of pageElements) {
         page.scrollTo(0, 0);
@@ -798,6 +808,7 @@ window.onresize = () => {
 
 detectMobile();
 goToPage(0);
+goToPage(15);
 
 if (!navigator.userAgent.includes('Windows')) showOnWindows.style.display = 'none';
 

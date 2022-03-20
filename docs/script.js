@@ -650,108 +650,111 @@ compressionTitleRect_red.onanimationstart = () => {
     }, 4000)
 };
 
-var galleryInt_pixel =  new imageGallery(gallery_pixel, 
-    [
-        ["gfx_pixel/pixel2.webp", "Логические пиксели (на устройстве)"],
-        ["gfx_pixel/pixel3.webp",  "Физические пиксели (на экране)"]
-    ]
-);
 
-var galleryInt_raster =  new imageGallery(gallery_raster, 
-    [
-        ["gfx_types/raster/tree1.webp", "Так выглядит обычное изображение..."],
-        ["gfx_types/raster/tree2.webp",  "...а так оно выглядит под увеличением."]
-    ]
-);
-
-var galleryInt_pixelart =  new imageGallery(gallery_pixelart, 
-    [
-        ["gfx_types/pixelart/snowman.webp", "Анимация снеговика"],
-        ["gfx_types/pixelart/mario.webp", "Изображение Марио из игры 1984 года"],
-        ["gfx_types/pixelart/landscape.webp", "Пейзаж (автор: OkiOkipx)"],
-        ["gfx_types/pixelart/star.webp", "<i>Звезда?</i>"],
-    ]
-);
-
-var galleryInt_natureFractals =  new imageGallery(gallery_natureFractals, 
-    [
-        ["gfx_types/fractals/nature1.webp", "Капуста романеско"],
-        ["gfx_types/fractals/nature2.webp", "Раковина наутилуса"],
-        ["gfx_types/fractals/nature3.webp", "Молнии"],
-        ["gfx_types/fractals/nature4.webp", "Снежинка"],
-        ["gfx_types/fractals/nature5.webp", "Кристаллы"]
-    ]
-);
-
-var galleryInt_vector =  new imageGallery(gallery_vector, 
-    [
-        ["gfx_types/vector/bananas.svg", "Векторные картинки"],
-        ["gfx_types/vector/cat.svg", "Векторные картинки"],
-        ["gfx_types/vector/letter.svg", "Векторные картинки"],
-        ["gfx_types/vector/popper.svg", "Векторные картинки"],
-        ["gfx_types/vector/sunflower.svg", "Векторные картинки"]
-    ]
-);
-
-var galleryInt_compression =  new imageGallery(gallery_compression, 
-    [
-        ["gfx_compression/a1.webp", "Фрагмент оригинальной несжатой фотографии"],
-        ["gfx_compression/a2.webp", "Тот же фрагмент, но с применением сжатия с потерями"],
-        ["gfx_compression/a3.webp", "И опять, но с более совершенным алгоритмом"]
-    ]
-);
-
-var galleryInt_gif2 =  new imageGallery(gallery_gif2, 
-    [
-        ["gfx_formats/gif/b1.webp", "Присмотритесь, и вы увидите последствия ограничения числа цветов"],
-        ["gfx_formats/gif/b2.webp", "Типичная прозрачность GIF-картинок"],
-    ]
-);
-
-var galleryInt_pngVsGif =  new imageGallery(gallery_pngVsGif, 
-    [
-        ["gfx_formats/png/vs_gif.webp", "GIF"],
-        ["gfx_formats/png/vs_apng.png", "APNG"]
-    ]
-);
-
-var galleryInt_raw = new imageGallery(gallery_raw, 
-    [
-        ["gfx_formats/raw/g1.webp", "Необработанные RAW изображения"],
-        ["gfx_formats/raw/g2.webp", "Необработанные RAW изображения"],
-        ["gfx_formats/raw/g3.webp", "Необработанные RAW изображения"],
-    ]
-);
-
-var galleryInt_squooshInstall = new imageGallery(gallery_squooshInstall, 
-    [
-        ["gfx_squoosh/sq_install1.webp", "На компьютере"],
-        ["gfx_squoosh/sq_install2.webp", "На Android"]
-    ]
-);
-
-var galleryInt_squooshPixelization = new imageGallery(gallery_squooshPixelization, 
-    [
-        ["gfx_squoosh/sq_pixel1.webp", "Без пикселизации"],
-        ["gfx_squoosh/sq_pixel2.webp", "С пикселизацией"]
-    ]
-);
-
-var galleryInt_fileFormats = new imageGallery(gallery_fileFormats, 
-    [
-        ["gfx_fileFormats/icon.jpg.webp",  ".jpg | Изображение в формате JPEG"],
-        ["gfx_fileFormats/icon.txt.webp",  ".txt | Текстовый файл"],
-        ["gfx_fileFormats/icon.png.webp",  ".png | Изображение в формате PNG"],
-        ["gfx_fileFormats/icon.mp4.webp",  ".mp4 | Видео"],
-        ["gfx_fileFormats/icon.docx.webp", ".docx | Документ Word"],
-        ["gfx_fileFormats/icon.pdf.webp",  ".pdf | Документ PDF"],
-        ["gfx_fileFormats/icon.exe.webp",  ".exe | Приложение (исполняемый файл)"],
-        ["gfx_fileFormats/icon.bmp.webp",  ".bmp | Изображение в формате BMP"],
-        ["gfx_fileFormats/icon.mp3.webp",  ".mp3 | Аудио"],
-        ["gfx_fileFormats/icon.gif.webp",  ".gif | Изображение в формате GIF"],
-        ["gfx_fileFormats/icon.mkv.webp",  ".mkv | Видео"]
-    ]
-);
+function loadGalleries() {
+    var galleryInt_pixel =  new imageGallery(gallery_pixel, 
+        [
+            ["gfx_pixel/pixel2.webp", "Логические пиксели (на устройстве)"],
+            ["gfx_pixel/pixel3.webp",  "Физические пиксели (на экране)"]
+        ]
+    );
+    
+    var galleryInt_raster =  new imageGallery(gallery_raster, 
+        [
+            ["gfx_types/raster/tree1.webp", "Так выглядит обычное изображение..."],
+            ["gfx_types/raster/tree2.webp",  "...а так оно выглядит под увеличением."]
+        ]
+    );
+    
+    var galleryInt_pixelart =  new imageGallery(gallery_pixelart, 
+        [
+            ["gfx_types/pixelart/snowman.webp", "Анимация снеговика"],
+            ["gfx_types/pixelart/mario.webp", "Изображение Марио из игры 1984 года"],
+            ["gfx_types/pixelart/landscape.webp", "Пейзаж (автор: OkiOkipx)"],
+            ["gfx_types/pixelart/star.webp", "<i>Звезда?</i>"],
+        ]
+    );
+    
+    var galleryInt_natureFractals =  new imageGallery(gallery_natureFractals, 
+        [
+            ["gfx_types/fractals/nature1.webp", "Капуста романеско"],
+            ["gfx_types/fractals/nature2.webp", "Раковина наутилуса"],
+            ["gfx_types/fractals/nature3.webp", "Молнии"],
+            ["gfx_types/fractals/nature4.webp", "Снежинка"],
+            ["gfx_types/fractals/nature5.webp", "Кристаллы"]
+        ]
+    );
+    
+    var galleryInt_vector =  new imageGallery(gallery_vector, 
+        [
+            ["gfx_types/vector/bananas.svg", "Векторные картинки"],
+            ["gfx_types/vector/cat.svg", "Векторные картинки"],
+            ["gfx_types/vector/letter.svg", "Векторные картинки"],
+            ["gfx_types/vector/popper.svg", "Векторные картинки"],
+            ["gfx_types/vector/sunflower.svg", "Векторные картинки"]
+        ]
+    );
+    
+    var galleryInt_compression =  new imageGallery(gallery_compression, 
+        [
+            ["gfx_compression/a1.webp", "Фрагмент оригинальной несжатой фотографии"],
+            ["gfx_compression/a2.webp", "Тот же фрагмент, но с применением сжатия с потерями"],
+            ["gfx_compression/a3.webp", "И опять, но с более совершенным алгоритмом"]
+        ]
+    );
+    
+    var galleryInt_gif2 =  new imageGallery(gallery_gif2, 
+        [
+            ["gfx_formats/gif/b1.webp", "Присмотритесь, и вы увидите последствия ограничения числа цветов"],
+            ["gfx_formats/gif/b2.webp", "Типичная прозрачность GIF-картинок"],
+        ]
+    );
+    
+    var galleryInt_pngVsGif =  new imageGallery(gallery_pngVsGif, 
+        [
+            ["gfx_formats/png/vs_gif.webp", "GIF"],
+            ["gfx_formats/png/vs_apng.png", "APNG"]
+        ]
+    );
+    
+    var galleryInt_raw = new imageGallery(gallery_raw, 
+        [
+            ["gfx_formats/raw/g1.webp", "Необработанные RAW изображения"],
+            ["gfx_formats/raw/g2.webp", "Необработанные RAW изображения"],
+            ["gfx_formats/raw/g3.webp", "Необработанные RAW изображения"],
+        ]
+    );
+    
+    var galleryInt_squooshInstall = new imageGallery(gallery_squooshInstall, 
+        [
+            ["gfx_squoosh/sq_install1.webp", "На компьютере"],
+            ["gfx_squoosh/sq_install2.webp", "На Android"]
+        ]
+    );
+    
+    var galleryInt_squooshPixelization = new imageGallery(gallery_squooshPixelization, 
+        [
+            ["gfx_squoosh/sq_pixel1.webp", "Без пикселизации"],
+            ["gfx_squoosh/sq_pixel2.webp", "С пикселизацией"]
+        ]
+    );
+    
+    var galleryInt_fileFormats = new imageGallery(gallery_fileFormats, 
+        [
+            ["gfx_fileFormats/icon.jpg.webp",  ".jpg | Изображение в формате JPEG"],
+            ["gfx_fileFormats/icon.txt.webp",  ".txt | Текстовый файл"],
+            ["gfx_fileFormats/icon.png.webp",  ".png | Изображение в формате PNG"],
+            ["gfx_fileFormats/icon.mp4.webp",  ".mp4 | Видео"],
+            ["gfx_fileFormats/icon.docx.webp", ".docx | Документ Word"],
+            ["gfx_fileFormats/icon.pdf.webp",  ".pdf | Документ PDF"],
+            ["gfx_fileFormats/icon.exe.webp",  ".exe | Приложение (исполняемый файл)"],
+            ["gfx_fileFormats/icon.bmp.webp",  ".bmp | Изображение в формате BMP"],
+            ["gfx_fileFormats/icon.mp3.webp",  ".mp3 | Аудио"],
+            ["gfx_fileFormats/icon.gif.webp",  ".gif | Изображение в формате GIF"],
+            ["gfx_fileFormats/icon.mkv.webp",  ".mkv | Видео"]
+        ]
+    );
+}
 
 function createGraph(targetElement, dataset) {
     let graphTable = document.createElement('table');
@@ -806,9 +809,10 @@ window.onresize = () => {
     comparisonTest.resizeImages();
 };
 
+pixelVideoIntro.onload = () => loadGalleries();
+
 detectMobile();
 goToPage(0);
-goToPage(15);
 
 if (!navigator.userAgent.includes('Windows')) showOnWindows.style.display = 'none';
 

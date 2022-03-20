@@ -54,10 +54,12 @@ var siteStructure = [
 
 
 function goToPage(index) {
+    let navTempIndex = index;
+    if (index === '+') navTempIndex = currentNormalPageIndex+1;
     if (currentNavlink) {
         currentNavlink.classList.remove('navlink_current');
     }
-    let targetNavlink = navlinks.find((element => element.pageid == index));
+    let targetNavlink = navlinks.find((element => element.pageid == navTempIndex));
     if (targetNavlink) {
         targetNavlink.classList.add('navlink_current');
         targetNavlink.classList.add('navlink_completed');
@@ -91,7 +93,6 @@ function goToPage(index) {
     }
     currentPage.classList.remove('page_displaynone');
     for (let videoElement of currentPage.getElementsByTagName('video')) {
-        console.log(videoElement);
         videoElement.oncansee = () => {
             videoElement.play();
         }

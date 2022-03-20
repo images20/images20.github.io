@@ -379,8 +379,17 @@ lPage::before {
     box-shadow: 0 2px 6px #0004;
 }
 
-lPage.completed::before {
+.navlink_completed::before {
     background: #1a6;
+}
+
+.navlink_current {
+	background: linear-gradient(90deg, #c2c2ff, #c2e9ff) !important;
+    box-shadow: 0 4px 8px #4488;
+}
+.navlink_current::before {
+    background: #fff;
+    transform: scale(1.5);
 }
 
 lPage:hover {
@@ -1191,7 +1200,7 @@ page[intitle="Пиксель"] .chapterTitleGFX {
     left: 20px;
 }
 .typesImg4 {
-    background-image: url('assets/gfx_titleImages/types/types4.avif');
+    background-image: url('assets/gfx_titleImages/types/types4.webp');
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -2287,6 +2296,12 @@ gotoCard:hover gcIconBackground {
     scale: 0.75;
 }
 
+fline {
+    display: block;
+    width: 100%;
+    height: 30px;
+}
+
 imglink, a {
     color: #35e;
     border-bottom: 2px solid #35e;
@@ -2598,6 +2613,10 @@ graphBar {
     transition: 2s ease;
 }
 
+/*
+    gfxGif: графика для GIF
+*/
+
 #gfxGif_container {
     position: relative;
     display: flex;
@@ -2676,6 +2695,14 @@ graphBar {
     animation: none !important;
 }
 
+.isOnMobile .gifFirstFHB {
+    flex-direction: column !important;
+}
+
+/*
+    loadShielf: экран загрузки
+*/
+
 #loadShield {
     position: fixed;
     top: 0;
@@ -2708,6 +2735,106 @@ graphBar {
     animation: spinner 3s linear forwards infinite;
 }
 
-.isOnMobile .gifFirstFHB {
-    flex-direction: column !important;
+/*
+    surveyContainer: опросы
+*/
+
+#surveyContainer {
+    width: calc(100% - 24px);
+    height: calc(100vh - 24px);
+    margin: 12px;
+    background: #f6f6f6;
+    box-shadow: 0 4px 16px #0006;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.isOnMobile #surveyContainer {
+    flex-direction: column-reverse;
+    width: calc(100% - 56px);
+    margin-right: 48px;
+}
+
+.isOnMobile #surveyContainer_nav {
+    border-right: none;
+    border-top: solid 1px #0002;
+}
+
+#surveyContainer_nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    max-width: 600px;
+    padding: 12px;
+    gap: 16px;
+    border-right: solid 1px #0002;
+    user-select: none;
+}
+
+.surveyNavLink {
+    display: flex;
+    height: 64px;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 6px;
+    padding: 12px;
+    gap: 12px;
+    background: #fff;
+    color: #57f;
+    border: solid #57f 4px;
+    box-shadow: 0 2px 4px #2384;
+    transition: 0.15s ease;
+}
+
+.surveyNavLink:not(.surveyNavLink_active):hover {
+    background: #57f2;
+    color: #57f;
+    border: solid #57f 4px;
+    box-shadow: 0 2px 4px #2384;
+}
+
+.surveyNavLink.surveyNavLink_active {
+    color: #fff;
+    background: #57f;
+    box-shadow: 0 4px 8px #2388;
+}
+.surveyNavLink.surveyNavLink_active snlDigit {
+    border: solid #fff 2px;
+}
+
+snlDigit {
+    line-height: 30px;
+    font-size: 24px;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    color: #57f;
+    border-radius: 99px;
+    box-sizing: border-box;
+    border: solid #57f 2px;
+}
+
+snlText {
+    font-size: 20px;
+}
+
+#surveyContainer_iframes {
+    position: relative;
+    flex-grow: 1;
+}
+
+#surveyContainer iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }

@@ -5,8 +5,9 @@ var S_EXTENDED = true;
 var pageElements = [...document.querySelectorAll('page:not([class="auxPage"])')];
 var pageAuxElements = [...document.querySelectorAll('page.auxPage')];
 var scrollTooltips = document.getElementsByClassName('scrollTooltip');
+var surveyNavLinks = document.getElementsByClassName('surveyNavLink');
 
-var currentNormalPageIndex = 0, currentPage = pageElements[0];
+var currentNormalPageIndex = 0, currentPage = pageElements[0], currentNavlink, navlinks = [];
 
 var siteStructure = [
     {
@@ -53,6 +54,15 @@ var siteStructure = [
 
 
 function goToPage(index) {
+    if (currentNavlink) {
+        currentNavlink.classList.remove('navlink_current');
+    }
+    let targetNavlink = navlinks.find((element => element.pageid == index));
+    if (targetNavlink) {
+        targetNavlink.classList.add('navlink_current');
+        targetNavlink.classList.add('navlink_completed');
+        currentNavlink = targetNavlink;
+    }
     for (let element of pageElements) {
         element.classList.add('page_displaynone');
     }
@@ -130,8 +140,7 @@ fullHeightBlocks.forEach(element => {
 
 
 function IntervalX(callback, interval, startPaused) {
-    var timerId;
-    var state = 0; //  0 - idle, 1 - running, 2 - paused;
+    var timerId, state = 0;
     this.pause = () => {
         if (state != 1) return;
         window.clearInterval(timerId);
@@ -151,6 +160,8 @@ function IntervalX(callback, interval, startPaused) {
     if (startPaused) this.pause();
 }
 
+function makeNavbarLinkGreen(targetElement) {
+}
 
 function createNavbarLinks() {
     let fragment = document.createDocumentFragment();
@@ -162,9 +173,11 @@ function createNavbarLinks() {
             let tagName = "lPage";
             if (page[2] == S_EXTENDED) tagName = "lExtended";
             let pageElement = document.createElement(tagName);
+            pageElement.pageid = page[1];
             pageElement.innerText = page[0];
-            pageElement.addEventListener('click', () => { goToPage(page[1]) });
+            pageElement.addEventListener('click', () => goToPage(page[1]));
             fragment.appendChild(pageElement);
+            navlinks.push(pageElement);
         }
     }
     navbar_links.appendChild(fragment);
@@ -482,15 +495,12 @@ class comparisonSystem {
         let bgSizeValue = rectInfo.width - 12;
         if (rectInfo.height - 222 <= rectInfo.width - 12) {
             this.changeOrientation('horizontal');
-            //this.element_main.classList.add('comparison_squareLocked');
             bgSizeValue = window.innerWidth - 12;
         }
         else {
             this.changeOrientation('vertical');
-            //this.element_main.classList.add('comparison_squareLocked');
             bgSizeValue = this.element_views.offsetHeight;
         }
-        //this.element_viewLeft.style.backgroundSize = this.element_viewRight.style.backgroundSize = bgSizeValue + "px";
     }
     refreshView = (which) => {
         if (which == 'left') {
@@ -515,28 +525,21 @@ class comparisonSystem {
     };
 }
 
-
-
-//this.element_viewLeft.style.width = "50%";
-
-
-
-
 var comparisonTest = new comparisonSystem(comparisonContainerMain, 
     [
         {text: "Фотография 1",   intValue: 'gfx_comparison/photo1/p1_'},
         {text: "Фотография 2",   intValue: 'gfx_comparison/photo2/p2_'},
         {text: "Графика 1",      intValue: 'gfx_comparison/graphics1/g1_'},
         {text: "Графика 2",      intValue: 'gfx_comparison/graphics2/g2_'},
-        //{text: "Из Интернета 1", intValue: 'gfx_comparison/internet1/i1_'},
-        //{text: "Графика 1",      intValue: 'gfx_comparison/internet2/i2_'},
+        {text: "Из Интернета 1", intValue: 'gfx_comparison/internet1/i1_'},
+        {text: "Из Интернета 2", intValue: 'gfx_comparison/internet2/i2_'}
     ], 
     [
         {text: "Оригинал (PNG)", intValue: 'orig.webp'},
         {text: "JPEG", intValue: 'jpeg.jpg' },
         {text: "WebP", intValue: 'webp.webp'},
         {text: "HEIF", intValue: 'heif.webp'},
-        {text: "AVIF", intValue: 'avif.avif'},
+        {text: "AVIF", intValue: 'avif.webp'},
     ]
 );
 
@@ -642,13 +645,6 @@ compressionTitleRect_red.onanimationstart = () => {
     }, 4000)
 };
 
-
-
-/*///////////////////////////////////
-    Галереи
-///////////////////////////////////*/
-
-
 var galleryInt_pixel =  new imageGallery(gallery_pixel, 
     [
         ["gfx_pixel/pixel2.webp", "Логические пиксели (на устройстве)"],
@@ -658,7 +654,7 @@ var galleryInt_pixel =  new imageGallery(gallery_pixel,
 
 var galleryInt_raster =  new imageGallery(gallery_raster, 
     [
-        ["gfx_types/raster/tree1.avif", "Так выглядит обычное изображение..."],
+        ["gfx_types/raster/tree1.webp", "Так выглядит обычное изображение..."],
         ["gfx_types/raster/tree2.webp",  "...а так оно выглядит под увеличением."]
     ]
 );
@@ -674,11 +670,11 @@ var galleryInt_pixelart =  new imageGallery(gallery_pixelart,
 
 var galleryInt_natureFractals =  new imageGallery(gallery_natureFractals, 
     [
-        ["gfx_types/fractals/nature1.avif", "Капуста романеско"],
-        ["gfx_types/fractals/nature2.avif", "Раковина наутилуса"],
-        ["gfx_types/fractals/nature3.avif", "Молнии"],
-        ["gfx_types/fractals/nature4.avif", "Снежинка"],
-        ["gfx_types/fractals/nature5.avif", "Кристаллы"]
+        ["gfx_types/fractals/nature1.webp", "Капуста романеско"],
+        ["gfx_types/fractals/nature2.webp", "Раковина наутилуса"],
+        ["gfx_types/fractals/nature3.webp", "Молнии"],
+        ["gfx_types/fractals/nature4.webp", "Снежинка"],
+        ["gfx_types/fractals/nature5.webp", "Кристаллы"]
     ]
 );
 
@@ -699,16 +695,6 @@ var galleryInt_compression =  new imageGallery(gallery_compression,
         ["gfx_compression/a3.webp", "И опять, но с более совершенным алгоритмом"]
     ]
 );
-
-/*
-var galleryInt_gif1 =  new imageGallery(gallery_gif1, 
-    [
-        ["gfx_formats/gif/a1.webp", "GIF-анимации"],
-        ["gfx_formats/gif/a2.webp", "GIF-анимации"],
-        ["gfx_formats/gif/a3.webp", "GIF-анимации"]
-    ]
-);
-*/
 
 var galleryInt_gif2 =  new imageGallery(gallery_gif2, 
     [
@@ -790,8 +776,6 @@ let comparisonLosslessGraph = createGraph(comparisonLosslessGraphContainer,
     ]
 );
 
-/////////////////////////////////////
-
 document.addEventListener('DOMContentLoaded',  () => {
     comparisonTest.resizeImages();
     titleScreen_reelContainer.style.animation = "anim_titleScreen_reelScroll 60s 2s linear infinite";
@@ -811,8 +795,6 @@ window.onresize = () => {
     comparisonTest.resizeImages();
 };
 
-/////////////////////////////////////
-
 detectMobile();
 goToPage(0);
 
@@ -824,4 +806,55 @@ for (let img of document.getElementsByTagName('img')) {
 
 setTimeout(() => loadShield.classList.add('displaynone'), 1000);
 
-/////////////////////////////////////
+if (window.location.search != '') {
+    lastPart.innerHTML = `
+        <div class="fullHeightBlock noGFX">
+            <div class="pageText">
+                <div>Спасибо, что прошли до конца.</div>
+                <div>Пожалуйста, оцените сайт и пройдите опрос про компьютерные игры, расположенные ниже.</div>
+                <div>Также вы можете вернуться в любую точку сайта, нажав на кнопку с тремя полосками в правом углу.</div>
+            </div>
+        </div>
+        <div id="surveyContainer">
+            <div id="surveyContainer_nav">
+                <div class="surveyNavLink">
+                    <snlDigit>1</snlDigit>
+                    <snlText>Оценка сайта</snlText>
+                </div>
+                <div class="surveyNavLink">
+                    <snlDigit>2</snlDigit>
+                    <snlText>Опрос про игры</snlText>
+                </div>
+            </div>
+            <div id="surveyContainer_iframes">
+                <iframe id="surveyFrame1" src="https://docs.google.com/forms/d/e/1FAIpQLSc80mi12l7oG0z84umTrOwRPCqR5aR1KeGlSatt90ujzicczA/viewform?embedded=true" width="640" height="480" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+                <iframe id="surveyFrame2" src="https://docs.google.com/forms/d/e/1FAIpQLSf-o7J4PN8dV5nOLIPxb6t2om6N0AqYdoNFB4nlGg1p755aKA/viewform?embedded=true" width="640" height="480" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+            </div>
+        </div>`;
+    function makeSurveyNavLink(a, b) {
+        surveyNavLinks[a-1].addEventListener('click', () => {
+            surveyNavLinks[b-1].classList.remove('surveyNavLink_active');
+            surveyNavLinks[a-1].classList.add('surveyNavLink_active');
+            document.getElementById('surveyFrame' + b).style.display = 'none';
+            document.getElementById('surveyFrame' + a).style.display = 'block';
+        });
+    }
+    
+    makeSurveyNavLink(1, 2);
+    makeSurveyNavLink(2, 1);
+    
+    surveyNavLinks[0].click();
+}
+else {
+    lastPart.innerHTML = `
+        <div class="fullHeightBlock noGFX">
+            <div class="pageText">
+                <div>Спасибо, что прошли до конца.</div>
+                <div>Пожалуйста, пройдите опрос, расположенный ниже.</div>
+                <div>Также вы можете вернуться в любую точку сайта, нажав на кнопку с тремя полосками в правом углу.</div>
+            </div>
+        </div>
+        <div id="surveyContainer">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSefb5hR_8VAeMl9jtqjz-hqdJPYsOkXcvunWtc-b9kjEJNeAA/viewform?embedded=true" width="640" height="480" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+        </div>`;
+}

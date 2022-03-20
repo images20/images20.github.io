@@ -217,10 +217,6 @@ function videoScrollAutoPlayPause(element, viewportHeight) {
     }
 }
 
-document.querySelector('#chapterTitle_PIXEL video').playbackRate = 1.1;
-document.querySelector('#chapterTitle_PIXEL video').onended = () => { document.body.classList.remove('bodyState_introNotDone') };
-
-
 titleScreen_startButton_container.onclick = () => {
     let scaleFactor;
     let rectInfo = titleScreen_startButton_pageTransitionRipple.getBoundingClientRect()
@@ -239,8 +235,10 @@ titleScreen_startButton_container.onclick = () => {
     setTimeout(() => {
         goToPage(1);
     }, 2500);
+    setTimeout(() => {
+        document.body.classList.remove('bodyState_introNotDone');
+    }, 6000);
     document.body.classList.remove('waitingForUserInteraction');
-
 }
 
 
@@ -810,9 +808,8 @@ window.onresize = () => {
     comparisonTest.resizeImages();
 };
 
-pixelIntroVideo.onload = () => loadGalleries();
-
 detectMobile();
+loadGalleries();
 goToPage(0);
 
 if (!navigator.userAgent.includes('Windows')) showOnWindows.style.display = 'none';

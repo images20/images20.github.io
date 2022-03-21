@@ -869,6 +869,6 @@ else {
             </div>
         </div>
         <div id="surveyContainer">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSefb5hR_8VAeMl9jtqjz-hqdJPYsOkXcvunWtc-b9kjEJNeAA/viewform?embedded=true" width="640" height="480" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc80mi12l7oG0z84umTrOwRPCqR5aR1KeGlSatt90ujzicczA/viewform?embedded=true" width="640" height="480" frameborder="0" marginheight="0" marginwidth="0">Загрузка…</iframe>
         </div>`;
 }

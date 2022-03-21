@@ -2939,7 +2939,6 @@ pxlthree:nth-child(3) {
     animation: pixel_gridScale 1.5s 3s ease-in-out forwards;
 }
 
-
 pxlrow {
     display: flex;
     justify-content: center;
@@ -2954,4 +2953,8 @@ plxw {
     aspect-ratio: 1;
     background-color: #fffc;
     height: 100%;
+}
+
+page[intitle="Пиксель"] .chapterTitleGFX {
+    flex-basis: 500px !important;
 }

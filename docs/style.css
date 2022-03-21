@@ -608,7 +608,7 @@ html, input, button {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    animation: anim_titleScreen_background 2s 4s ease alternate forwards;
+    animation: anim_titleScreen_background 2s 6s ease alternate forwards;
     overflow: hidden;
     z-index: 10;
 }
@@ -633,7 +633,7 @@ html, input, button {
     user-select: none;
     opacity: 0;
     z-index: 2;
-    animation: anim_easeLeft 1s 2.5s ease alternate forwards;
+    animation: anim_easeLeft 1s 4.5s ease alternate forwards;
 }
 
 #titleScreen_sideLeft {
@@ -644,7 +644,7 @@ html, input, button {
     min-width: 672px;
     z-index: 1;
     opacity: 0;
-    animation: anim_titleScreen_reelOpacity 2s 4s ease alternate forwards;
+    animation: anim_titleScreen_reelOpacity 2s 5s ease alternate forwards;
 }
 
 #titleScreen_sideLeftContainer {
@@ -668,7 +668,7 @@ html, input, button {
     height: 100%;
     visibility: hidden;
     opacity: 0;
-    animation: anim_titleScreen_reelOpacity 2s 3s ease alternate forwards;
+    animation: anim_titleScreen_reelOpacity 2s 4s ease alternate forwards;
 }
 
 div#titleScreen_startButton_container {

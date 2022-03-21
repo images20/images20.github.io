@@ -818,7 +818,7 @@ for (let img of document.getElementsByTagName('img')) {
     img.setAttribute('draggable', 'false');
 }
 
-setTimeout(() => loadShield.classList.add('displaynone'), 1000);
+setTimeout(() => loadShield.classList.add('displaynone'), 4000);
 
 if (window.location.search != '') {
     lastPart.innerHTML = `

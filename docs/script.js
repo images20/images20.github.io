@@ -114,9 +114,14 @@ function getParentPage(element) {
     return current;
 }
 
+function checkClickPath(etarget, searchFor) {
+    if (etarget == searchFor || etarget.parentElement == searchFor || etarget.parentElement.parentElement == searchFor) return true
+    else return false;
+}
+
 window.onclick = (event) => {
-	if (event.path.includes(navOpenButton)) document.body.classList.add('navbarVisible')
-	else if (!event.path.includes(navbar) || event.path.includes(navbar_header_closeButton)) document.body.classList.remove('navbarVisible')
+	if ( checkClickPath(event.target, navOpenButton) ) document.body.classList.add('navbarVisible')
+	else if (!checkClickPath(event.target, navbar) || checkClickPath(event.target, navbar_header_closeButton)) document.body.classList.remove('navbarVisible')
 }
 
 auxBackButton.onclick = () => {
